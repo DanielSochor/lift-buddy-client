@@ -1,8 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Auth from './authorizer';
 
 function App() {
+
+  const authSubmit = (event) => {
+    event.preventDefault();
+    Auth();
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -16,7 +23,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+           <button onClick={authSubmit}>Submit</button>
         </a>
       </header>
     </div>
