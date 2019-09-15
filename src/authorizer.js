@@ -4,7 +4,7 @@ import axios from 'axios';
 const baseUrl = 'https://healthy-people-back-end.herokuapp.com/'
 
 function Auth() {
-    axios.get(baseUrl + 'api/user')
+    axios.post(baseUrl + 'api/user')
     .then(response => {
         console.log(response);
     }).catch(error => {
