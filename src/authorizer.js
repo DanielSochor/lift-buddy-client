@@ -6,7 +6,7 @@ const baseUrl = process.env.REACT_APP_SERVER_URL|| '/'
 function Auth() {
     console.log('auth called');
     let test = {
-        'email_address' : 'test'
+        email_address : 'danielsochor@gmail.com'
       };
     axios.post(baseUrl + 'api/user',test)
     .then(response => {
