@@ -8,6 +8,7 @@ function Auth() {
     let test = {
         email_address : 'danielsochor@gmail.com'
       };
+      console.log('test is: ' + test);
       console.log('test 0 key is: ' + Object.keys(test)[0]);
       console.log('test 0 value is: ' + Object.values(test)[0]);
     axios.post(baseUrl + 'api/user',test)
