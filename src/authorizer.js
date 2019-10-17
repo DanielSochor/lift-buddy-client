@@ -4,7 +4,6 @@ const baseUrl = process.env.REACT_APP_SERVER_URL || '/'
 //const baseUrl = 'https://healthy-people-back-end.herokuapp.com/'
 
 function Auth() {
-    //console.log('auth called');
     let test = {
         email_address: 'danielsochor@gmail.com'
     };
