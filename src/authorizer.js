@@ -10,7 +10,7 @@ function Auth() {
     //console.log('test 0 key is: ' + Object.keys(test)[0]);
     //console.log('test 0 value is: ' + Object.values(test)[0]);
     console.log('Auth called');
-    axios.post(baseUrl + 'api/user', test)
+    axios.get(baseUrl + 'api/user', test)
         .then(response => {
             console.log('response is: ');
             console.log(response);
