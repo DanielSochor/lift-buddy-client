@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('../../LiftBuddy-Client/dotenv');
 import axios from 'axios';
 
 //const baseUrl = process.env.REACT_APP_SERVER_URL
