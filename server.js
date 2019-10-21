@@ -1,1 +1,1 @@
-require('dotenv').config();
+const dotenv = require('dotenv');
