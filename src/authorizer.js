@@ -1,3 +1,4 @@
+require('dotenv').config();
 import axios from 'axios';
 
 //const baseUrl = process.env.REACT_APP_SERVER_URL
