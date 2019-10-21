@@ -3,9 +3,9 @@ import axios from 'axios';
 
 //const baseUrl = process.env.REACT_APP_SERVER_URL
 //const baseUrl = process.env.REACT_APP_SERVER_URL || '/'
-//const baseUrl = 'https://healthy-people-back-end.herokuapp.com/'
+const baseUrl = 'https://healthy-people-back-end.herokuapp.com/'
 
-const baseUrl = (process.env.NODE_ENV === 'production')? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL
+//const baseUrl = (process.env.NODE_ENV === 'production')? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL
 
 function Auth() {
     let test = {
