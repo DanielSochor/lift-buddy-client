@@ -11,8 +11,12 @@ var baseUrl = '';
 
 if (process.env.NODE_ENV !== 'production') {
     baseUrl = process.env.REACT_APP_LOCAL_URL;
+    console.log('local');
+    console.log(baseUrl);
 } else {
     baseUrl = process.env.REACT_APP_SERVER_URL;
+    console.log('production');
+    console.log(baseUrl);
 }
 
 function Auth() {
