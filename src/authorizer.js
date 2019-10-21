@@ -1,6 +1,9 @@
 //require('../../LiftBuddy-Client/dotenv');
 import axios from 'axios';
 
+console.log('process.env.NODE_ENV is: ');
+console.log(process.env.NODE_ENV);
+
 //const baseUrl = process.env.REACT_APP_SERVER_URL
 //const baseUrl = process.env.REACT_APP_SERVER_URL || '/'
 //const baseUrl = 'https://healthy-people-back-end.herokuapp.com/'
