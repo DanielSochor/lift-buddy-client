@@ -4,7 +4,9 @@ import axios from 'axios';
 console.log('process.env.NODE_ENV is: ');
 console.log(process.env.NODE_ENV);
 
-const baseUrl = (process.env.NODE_ENV === 'production')? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL;
+const baseUrl = (process.env.NODE_ENV === 'production')? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_SERVER_URL;
+
+console.log(process.env.NODE_ENV);
 
 function Auth() {
     let test = {
