@@ -25,18 +25,32 @@ var baseUrl = '';
 console.log(process.env.NODE_ENV);
 
 function Auth() {
-    let test = {
-        email_address: 'danielsochor@gmail.com'
-    };
-    console.log('baseURL is: ');
-    console.log(baseUrl);
-    axios.post(baseUrl + 'api/user', test)
+    if (process.env.NODE_ENV !== 'production') {
+        let test = {
+            email_address: 'dev@gmail.com'
+        };
+        axios.post(baseUrl + 'api/user', test)
         .then(response => {
             console.log('response is: ');
             console.log(response);
         }).catch(error => {
             console.log(error);
         });
+    } else {
+        let test = {
+            email_address: 'prod@gmail.com'
+        };
+        axios.post(baseUrl + 'api/user', test)
+        .then(response => {
+            console.log('response is: ');
+            console.log(response);
+        }).catch(error => {
+            console.log(error);
+        });
+    }
+
+    //console.log('baseURL is: ');
+    //console.log(baseUrl);
 }
 
 export default Auth;
