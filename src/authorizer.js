@@ -24,7 +24,8 @@ function Auth() {
     let test = {
         email_address: 'danielsochor@gmail.com'
     };
-    console.log('Auth called');
+    console.log('baseURL is: ');
+    console.log(baseUrl);
     axios.post(baseUrl + 'api/user', test)
         .then(response => {
             console.log('response is: ');
