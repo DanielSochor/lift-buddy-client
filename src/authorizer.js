@@ -8,19 +8,19 @@ console.log(process.env.NODE_ENV);
 //const baseUrl = process.env.REACT_APP_SERVER_URL || '/'
 //const baseUrl = 'https://healthy-people-back-end.herokuapp.com/'
 
-//const baseUrl = (process.env.NODE_ENV === 'production')? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL
+const baseUrl = (process.env.NODE_ENV === 'production')? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL;
 
-var baseUrl = '';
+// var baseUrl = '';
 
-if (process.env.NODE_ENV !== 'production') {
-    baseUrl = process.env.REACT_APP_LOCAL_URL;
-    console.log('local');
-    console.log(baseUrl);
-} else {
-    baseUrl = process.env.REACT_APP_SERVER_URL;
-    console.log('production');
-    console.log(baseUrl);
-}
+// if (process.env.NODE_ENV !== 'production') {
+//     baseUrl = process.env.REACT_APP_LOCAL_URL;
+//     console.log('local');
+//     console.log(baseUrl);
+// } else {
+//     baseUrl = process.env.REACT_APP_SERVER_URL;
+//     console.log('production');
+//     console.log(baseUrl);
+// }
 
 function Auth() {
     let test = {
