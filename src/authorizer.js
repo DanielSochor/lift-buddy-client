@@ -8,7 +8,7 @@ const baseUrl = (process.env.NODE_ENV === 'production')? process.env.REACT_APP_S
 
 function Auth() {
     let test = {
-        email_address: 'Danielsochor@gmail.com'
+        email_address: 'DanielSochor@gmail.com'
     };
     //console.log('test 0 key is: ' + Object.keys(test)[0]);
     //console.log('test 0 value is: ' + Object.values(test)[0]);
