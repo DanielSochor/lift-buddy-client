@@ -12,7 +12,7 @@ var baseUrl = (process.env.NODE_ENV == 'production')? process.env.REACT_APP_SERV
 
 //var baseUrl = '';
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV == 'development') {
     baseUrl = process.env.REACT_APP_LOCAL_URL;
     console.log('local');
     console.log(baseUrl);
