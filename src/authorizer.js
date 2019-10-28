@@ -12,7 +12,7 @@ console.log(process.env.REACT_APP_SERVER_URL);
 
 var baseUrl = '';
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV == 'production') {
     baseUrl = process.env.REACT_APP_SERVER_URL;
     console.log('production');
     console.log(baseUrl);
