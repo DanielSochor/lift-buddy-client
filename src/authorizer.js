@@ -34,8 +34,8 @@ function Auth() {
         };
         axios.post(baseUrl + 'api/user', test)
         .then(response => {
-            console.log('baseURL is: ');
-            console.log(baseURL);
+            //console.log('baseURL is: ');
+            //console.log(baseURL);
             console.log('response is: ');
             console.log(response);
         }).catch(error => {
@@ -47,8 +47,8 @@ function Auth() {
         };
         axios.post(baseUrl + 'api/user', test)
         .then(response => {
-            console.log('baseURL is: ');
-            console.log(baseURL);
+            //console.log('baseURL is: ');
+            //console.log(baseURL);
             console.log('response is: ');
             console.log(response);
         }).catch(error => {
