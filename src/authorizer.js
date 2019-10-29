@@ -32,28 +32,30 @@ function Auth() {
         let test = {
             email_address: 'dev@gmail.com'
         };
-        axios.post(baseUrl + 'api/user', test)
-        .then(response => {
-            //console.log('baseURL is: ');
-            //console.log(baseURL);
-            console.log('response is: ');
-            console.log(response);
-        }).catch(error => {
-            console.log(error);
-        });
+        console.log(test);
+        // axios.post(baseUrl + 'api/user', test)
+        // .then(response => {
+        //     //console.log('baseURL is: ');
+        //     //console.log(baseURL);
+        //     console.log('response is: ');
+        //     console.log(response);
+        // }).catch(error => {
+        //     console.log(error);
+        // });
     } else {
         let test = {
             email_address: 'prod@gmail.com'
         };
-        axios.post(baseUrl + 'api/user', test)
-        .then(response => {
-            //console.log('baseURL is: ');
-            //console.log(baseURL);
-            console.log('response is: ');
-            console.log(response);
-        }).catch(error => {
-            console.log(error);
-        });
+        console.log(test);
+        // axios.post(baseUrl + 'api/user', test)
+        // .then(response => {
+        //     //console.log('baseURL is: ');
+        //     //console.log(baseURL);
+        //     console.log('response is: ');
+        //     console.log(response);
+        // }).catch(error => {
+        //     console.log(error);
+        // });
     }
 
     //console.log('baseURL is: ');
