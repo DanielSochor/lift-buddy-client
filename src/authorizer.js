@@ -15,15 +15,15 @@ console.log(process.env.REACT_APP_SERVER_URL);
 
 var baseUrl = '';
 
-// if (process.env.NODE_ENV === 'development') {
-//     baseUrl = process.env.REACT_APP_SERVER_URL;
-//     console.log('local');
-//     console.log(baseUrl);
-// } else {
-//     baseUrl = process.env.REACT_APP_LOCAL_URL;
-//     console.log('production');
-//     console.log(baseUrl);
-// }
+if (process.env.NODE_ENV === 'development') {
+    baseUrl = process.env.REACT_APP_SERVER_URL;
+    console.log('local');
+    console.log(baseUrl);
+} else {
+    baseUrl = process.env.REACT_APP_LOCAL_URL;
+    console.log('production');
+    console.log(baseUrl);
+}
 
 console.log(process.env.NODE_ENV);
 
@@ -32,30 +32,28 @@ function Auth() {
         let test = {
             email_address: 'dev@gmail.com'
         };
-        console.log(test);
-        // axios.post(baseUrl + 'api/user', test)
-        // .then(response => {
-        //     //console.log('baseURL is: ');
-        //     //console.log(baseURL);
-        //     console.log('response is: ');
-        //     console.log(response);
-        // }).catch(error => {
-        //     console.log(error);
-        // });
+        axios.post(baseUrl + 'api/user', test)
+        .then(response => {
+            //console.log('baseURL is: ');
+            //console.log(baseURL);
+            console.log('response is: ');
+            console.log(response);
+        }).catch(error => {
+            console.log(error);
+        });
     } else {
         let test = {
             email_address: 'prod@gmail.com'
         };
-        console.log(test);
-        // axios.post(baseUrl + 'api/user', test)
-        // .then(response => {
-        //     //console.log('baseURL is: ');
-        //     //console.log(baseURL);
-        //     console.log('response is: ');
-        //     console.log(response);
-        // }).catch(error => {
-        //     console.log(error);
-        // });
+        axios.post(baseUrl + 'api/user', test)
+        .then(response => {
+            //console.log('baseURL is: ');
+            //console.log(baseURL);
+            console.log('response is: ');
+            console.log(response);
+        }).catch(error => {
+            console.log(error);
+        });
     }
 
     //console.log('baseURL is: ');
