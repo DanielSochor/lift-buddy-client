@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 console.log('baseURL is: ');
-console.log(baseURL);
+//console.log(baseURL);
 
 console.log(process.env.NODE_ENV);
 
