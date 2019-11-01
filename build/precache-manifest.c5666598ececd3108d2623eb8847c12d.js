@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8ff40d828e4687c3d1ab7a70d9bd569b",
+    "revision": "6a7fe315597db31fcc27216e3096bc9b",
     "url": "https://healthy-people-front-end.herokuapp.com/index.html"
   },
   {
-    "revision": "ac80b5b834e4c593adec",
+    "revision": "5c4e4dcf29fcac92e9f3",
     "url": "https://healthy-people-front-end.herokuapp.com/static/css/main.2cce8147.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://healthy-people-front-end.herokuapp.com/static/js/2.c0736654.chunk.js"
   },
   {
-    "revision": "ac80b5b834e4c593adec",
-    "url": "https://healthy-people-front-end.herokuapp.com/static/js/main.f299008b.chunk.js"
+    "revision": "5c4e4dcf29fcac92e9f3",
+    "url": "https://healthy-people-front-end.herokuapp.com/static/js/main.9fd8cc11.chunk.js"
   },
   {
     "revision": "7dbbb7169aae17611431",
