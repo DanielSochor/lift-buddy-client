@@ -14,15 +14,18 @@ console.log(process.env.REACT_APP_SERVER_URL);
 
 var baseUrl = process.env.REACT_APP_LOCAL_URL;
 
-// if (process.env.NODE_ENV === 'development') {
-//     baseUrl = process.env.REACT_APP_LOCAL_URL;
-//     console.log('local');
-//     console.log(baseUrl);
-// } else {
-//     baseUrl = process.env.REACT_APP_SERVER_URL;
-//     console.log('production');
-//     console.log(baseUrl);
-// }
+if (process.env.NODE_ENV === 'development') {
+    baseUrl = process.env.REACT_APP_LOCAL_URL;
+    console.log('local');
+    console.log(baseUrl);
+} else {
+    baseUrl = process.env.REACT_APP_SERVER_URL;
+    console.log('production');
+    console.log(baseUrl);
+}
+
+console.log('baseURL is: ');
+console.log(baseURL);
 
 console.log(process.env.NODE_ENV);
 
