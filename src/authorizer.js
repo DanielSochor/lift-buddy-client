@@ -15,11 +15,11 @@ console.log(process.env.REACT_APP_SERVER_URL);
 var baseUrl = '';
 
 if (process.env.NODE_ENV === 'development') {
-    baseUrl = process.env.REACT_APP_SERVER_URL;
+    baseUrl = process.env.REACT_APP_LOCAL_URL;
     console.log('local');
     console.log(baseUrl);
 } else {
-    baseUrl = process.env.REACT_APP_LOCAL_URL;
+    baseUrl = process.env.REACT_APP_SERVER_URL;
     console.log('production');
     console.log(baseUrl);
 }
