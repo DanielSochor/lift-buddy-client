@@ -29,7 +29,7 @@ console.log(process.env.NODE_ENV);
 function Auth() {
     if (process.env.NODE_ENV !== 'production') {
         let test = {
-            email_address: 'dev@gmail.com'
+            email_address: 'Dev@gmail.com'
         };
         axios.post(baseUrl + 'api/user', test)
         .then(response => {
@@ -42,7 +42,7 @@ function Auth() {
         });
     } else {
         let test = {
-            email_address: 'prod@gmail.com'
+            email_address: 'Prod@gmail.com'
         };
         axios.post(baseUrl + 'api/user', test)
         .then(response => {
