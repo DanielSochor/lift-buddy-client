@@ -58,8 +58,8 @@ function Auth() {
         });
     }
 
-    //console.log('baseURL is: ');
-    //console.log(baseUrl);
+    console.log('baseURL is: ');
+    console.log(baseUrl);
 }
 
 export default Auth;
