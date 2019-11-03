@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "https://healthy-people-front-end.herokuapp.com/static/css/main.2cce8147.chunk.css",
-    "main.js": "https://healthy-people-front-end.herokuapp.com/static/js/main.65b266f9.chunk.js",
-    "main.js.map": "https://healthy-people-front-end.herokuapp.com/static/js/main.65b266f9.chunk.js.map",
+    "main.js": "https://healthy-people-front-end.herokuapp.com/static/js/main.bdab4969.chunk.js",
+    "main.js.map": "https://healthy-people-front-end.herokuapp.com/static/js/main.bdab4969.chunk.js.map",
     "runtime~main.js": "https://healthy-people-front-end.herokuapp.com/static/js/runtime~main.928b7320.js",
     "runtime~main.js.map": "https://healthy-people-front-end.herokuapp.com/static/js/runtime~main.928b7320.js.map",
-    "static/js/2.c0736654.chunk.js": "https://healthy-people-front-end.herokuapp.com/static/js/2.c0736654.chunk.js",
-    "static/js/2.c0736654.chunk.js.map": "https://healthy-people-front-end.herokuapp.com/static/js/2.c0736654.chunk.js.map",
+    "static/js/2.05b7d58f.chunk.js": "https://healthy-people-front-end.herokuapp.com/static/js/2.05b7d58f.chunk.js",
+    "static/js/2.05b7d58f.chunk.js.map": "https://healthy-people-front-end.herokuapp.com/static/js/2.05b7d58f.chunk.js.map",
     "index.html": "https://healthy-people-front-end.herokuapp.com/index.html",
-    "precache-manifest.b3cae5f1b56a533f5258bc46898f3df5.js": "https://healthy-people-front-end.herokuapp.com/precache-manifest.b3cae5f1b56a533f5258bc46898f3df5.js",
+    "precache-manifest.ea6fd0fc889126f1a5496d5bce89d0a9.js": "https://healthy-people-front-end.herokuapp.com/precache-manifest.ea6fd0fc889126f1a5496d5bce89d0a9.js",
     "service-worker.js": "https://healthy-people-front-end.herokuapp.com/service-worker.js",
     "static/css/main.2cce8147.chunk.css.map": "https://healthy-people-front-end.herokuapp.com/static/css/main.2cce8147.chunk.css.map"
   }
