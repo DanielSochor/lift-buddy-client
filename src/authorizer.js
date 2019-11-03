@@ -46,7 +46,7 @@ function Auth() {
         }).catch(error => {
             console.log(error);
         });
-    } else if (process.env.NODE_ENV === 'development'){
+    } else if (process.env.NODE_ENV === 'production'){
         let test = {
             email_address: 'Prod@gmail.com'
         };
