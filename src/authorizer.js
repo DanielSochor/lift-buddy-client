@@ -46,7 +46,7 @@ function Auth() {
         }).catch(error => {
             console.log(error);
         });
-    } else {
+    } else if (process.env.NODE_ENV == 'production'){
         let test = {
             email_address: 'Prod@gmail.com'
         };
@@ -59,7 +59,9 @@ function Auth() {
         }).catch(error => {
             console.log(error);
         });
-    }
+    } else {
+        console.log('no value found');
+    };
 
     // console.log('baseURL is: ');
     // console.log(baseUrl);
