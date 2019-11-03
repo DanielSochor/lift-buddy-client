@@ -32,6 +32,7 @@ console.log(process.env.REACT_APP_SERVER_URL);
 console.log('test');
 
 function Auth() {
+    console.log('auth');
     if (process.env.NODE_ENV !== 'production') {
         let test = {
             email_address: 'Dev@gmail.com'
