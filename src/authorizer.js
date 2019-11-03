@@ -29,6 +29,8 @@ import axios from 'axios';
 
 //console.log(process.env.NODE_ENV);
 
+console.log('test');
+
 function Auth() {
     if (process.env.NODE_ENV !== 'production') {
         let test = {
