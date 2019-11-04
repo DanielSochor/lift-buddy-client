@@ -33,7 +33,8 @@ console.log('test');
 
 function Auth() {
     console.log('auth');
-    if (process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV === 'production') {
+        console.log('env is prod');
         let test = {
             email_address: 'Dev@gmail.com'
         };
@@ -47,6 +48,7 @@ function Auth() {
             console.log(error);
         });
     } else if (process.env.NODE_ENV === 'development'){
+        console.log('env is dev');
         let test = {
             email_address: 'Prod@gmail.com'
         };
@@ -60,7 +62,7 @@ function Auth() {
             console.log(error);
         });
     } else {
-        console.log('no value found');
+        console.log('env is something else');
     };
 
     // console.log('baseURL is: ');
