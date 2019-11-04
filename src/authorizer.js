@@ -38,7 +38,7 @@ function Auth() {
         let test = {
             email_address: 'Dev@gmail.com'
         };
-        axios.post(process.env.REACT_APP_LOCAL_URL + 'api/user', test)
+        axios.post(process.env.REACT_APP_SERVER_URL + 'api/user', test)
         .then(response => {
             console.log('local URL is: ');
             console.log(process.env.REACT_APP_LOCAL_URL);
@@ -52,7 +52,7 @@ function Auth() {
         let test = {
             email_address: 'Prod@gmail.com'
         };
-        axios.post(process.env.REACT_APP_SERVER_URL + 'api/user', test)
+        axios.post(process.env.REACT_APP_LOCAL_URL + 'api/user', test)
         .then(response => {
             console.log('server URL is: ');
             console.log(process.env.REACT_APP_SERVER_URL);
