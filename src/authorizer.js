@@ -41,7 +41,7 @@ function Auth() {
         axios.post(process.env.REACT_APP_SERVER_URL + 'api/user', test)
         .then(response => {
             console.log('local URL is: ');
-            console.log(process.env.REACT_APP_LOCAL_URL);
+            console.log(process.env.REACT_APP_SERVER_URL);
             console.log('response is: ');
             console.log(response);
         }).catch(error => {
@@ -55,7 +55,7 @@ function Auth() {
         axios.post(process.env.REACT_APP_LOCAL_URL + 'api/user', test)
         .then(response => {
             console.log('server URL is: ');
-            console.log(process.env.REACT_APP_SERVER_URL);
+            console.log(process.env.REACT_APP_LOCAL_URL);
             console.log('response is: ');
             console.log(response);
         }).catch(error => {
