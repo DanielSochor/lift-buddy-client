@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://healthy-people-front-end.herokuapp.com/precache-manifest.b44207174bdd6e82ee5d5c58dc4f7dde.js"
+  "https://healthy-people-front-end.herokuapp.com/precache-manifest.feb1d0b618459d13fbac5a14d9c2a0d3.js"
 );
 
 self.addEventListener('message', (event) => {
