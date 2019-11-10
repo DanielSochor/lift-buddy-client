@@ -1,1 +1,1 @@
-heroku scale web=0 worker=1
+heroku config:set NODE_ENV=staging
