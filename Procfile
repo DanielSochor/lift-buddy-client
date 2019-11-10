@@ -1,1 +1,1 @@
-heroku config:set NODE_ENV=staging
+heroku scale web=0
