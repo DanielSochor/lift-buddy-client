@@ -1,1 +1,1 @@
-heroku scale web=0
+web: node index.js
