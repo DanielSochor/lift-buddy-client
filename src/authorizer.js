@@ -10,7 +10,7 @@ console.log(process.env.REACT_APP_LOCAL_URL);
 console.log('process.env.REACT_APP_SERVER_URL is: ');
 console.log(process.env.REACT_APP_SERVER_URL);
 
-//var baseUrl = (process.env.NODE_ENV == 'production') ? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL;
+var baseUrl = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL;
 
 // var baseUrl = process.env.REACT_APP_LOCAL_URL;
 
@@ -24,8 +24,8 @@ console.log(process.env.REACT_APP_SERVER_URL);
 //     console.log(baseUrl);
 // }
 
-//console.log('baseURL is: ');
-//console.log(baseURL);
+console.log('baseURL is: ');
+console.log(baseURL);
 
 //console.log(process.env.NODE_ENV);
 
