@@ -14,6 +14,8 @@ console.log(process.env.REACT_APP_SERVER_URL);
 
 // var baseUrl = process.env.REACT_APP_LOCAL_URL;
 
+var baseURL = '';
+
 if (process.env.NODE_ENV === 'development') {
      baseUrl = process.env.REACT_APP_LOCAL_URL;
      console.log('local');
