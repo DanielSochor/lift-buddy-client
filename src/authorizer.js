@@ -34,7 +34,7 @@ function Auth() {
     if (process.env.NODE_ENV === 'production') {
         console.log('env is prod');
         let test = {
-            email_address: 'Dev@gmail.com'
+            email_address: 'Prod@gmail.com'
         };
         axios.post(process.env.REACT_APP_SERVER_URL + 'api/user', test)
         .then(response => {
@@ -48,7 +48,7 @@ function Auth() {
     } else if (process.env.NODE_ENV === 'development'){
         console.log('env is dev');
         let test = {
-            email_address: 'Prod@gmail.com'
+            email_address: 'Dev@gmail.com'
         };
         axios.post(process.env.REACT_APP_LOCAL_URL + 'api/user', test)
         .then(response => {
