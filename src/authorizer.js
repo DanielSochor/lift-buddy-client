@@ -4,11 +4,12 @@ console.log('process.env is: ');
 console.log(process.env);
 
 //Can we somehow include this in the future:
-//var baseUrl = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL;
+//var baseURL = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL;
 
 function Auth() {
+    var baseURL = '';
     if (process.env.NODE_ENV === 'production') {
-        var baseURL = process.env.REACT_APP_SERVER_URL
+        baseURL = process.env.REACT_APP_SERVER_URL
         let test = {
             email_address: 'production@gmail.com'
         };
@@ -20,7 +21,7 @@ function Auth() {
                 console.log(error);
             });
     } else if (process.env.NODE_ENV === 'development') {
-        var baseURL = process.env.REACT_APP_LOCAL_URL
+        baseURL = process.env.REACT_APP_LOCAL_URL
         let test = {
             email_address: 'development@gmail.com'
         };
