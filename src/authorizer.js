@@ -32,18 +32,20 @@ console.log(process.env.REACT_APP_SERVER_URL);
 //console.log(process.env.NODE_ENV);
 
 function Auth() {
-    var baseUrl = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL;
+    //var baseUrl = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL;
     if (process.env.NODE_ENV === 'production') {
-        console.log('baseURL is: ');
-        console.log(baseURL);
+        var baseURL = process.env.REACT_APP_SERVER_URL
+
+        //console.log('baseURL is: ');
+        //console.log(baseURL);
         console.log('env is prod');
         let test = {
             email_address: 'Prod@gmail.com'
         };
-        axios.post(process.env.REACT_APP_SERVER_URL + 'api/user', test)
+        axios.post(baseURL + 'api/user', test)
             .then(response => {
-                console.log('local URL is: ');
-                console.log(process.env.REACT_APP_SERVER_URL);
+                console.log('production URL is: ');
+                console.log(baseURL);
                 console.log('response is: ');
                 console.log(response);
             }).catch(error => {
