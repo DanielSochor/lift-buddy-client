@@ -32,35 +32,37 @@ console.log(baseURL);
 //console.log(process.env.NODE_ENV);
 
 function Auth() {
-    console.log('auth');
-    if (process.env.NODE_ENV === 'production') {
+    var baseUrl = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL;
+    if (process.env.NODE_ENV === 'production') {
+        console.log('baseURL is: ');
+        console.log(baseURL);
         console.log('env is prod');
         let test = {
             email_address: 'Prod@gmail.com'
         };
         axios.post(process.env.REACT_APP_SERVER_URL + 'api/user', test)
-        .then(response => {
-            console.log('local URL is: ');
-            console.log(process.env.REACT_APP_SERVER_URL);
-            console.log('response is: ');
-            console.log(response);
-        }).catch(error => {
-            console.log(error);
-        });
-    } else if (process.env.NODE_ENV === 'development'){
+            .then(response => {
+                console.log('local URL is: ');
+                console.log(process.env.REACT_APP_SERVER_URL);
+                console.log('response is: ');
+                console.log(response);
+            }).catch(error => {
+                console.log(error);
+            });
+    } else if (process.env.NODE_ENV === 'development') {
         console.log('env is dev');
         let test = {
             email_address: 'Dev@gmail.com'
         };
         axios.post(process.env.REACT_APP_LOCAL_URL + 'api/user', test)
-        .then(response => {
-            console.log('server URL is: ');
-            console.log(process.env.REACT_APP_LOCAL_URL);
-            console.log('response is: ');
-            console.log(response);
-        }).catch(error => {
-            console.log(error);
-        });
+            .then(response => {
+                console.log('server URL is: ');
+                console.log(process.env.REACT_APP_LOCAL_URL);
+                console.log('response is: ');
+                console.log(response);
+            }).catch(error => {
+                console.log(error);
+            });
     } else {
         console.log('env is something else');
     };
