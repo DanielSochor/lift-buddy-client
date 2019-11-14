@@ -12,13 +12,15 @@ var user = {};
 (function (obj) {
   // @TODO 
 
+  const baseURL = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL;
+  console.log(baseURL);
 
   obj.checkForExistingSession = () => {
     let session_token = localStorage.getItem('x-session-token');
 
     if (session_token) {
     //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(response => {
-      axios.get('/api/users', { headers: { 'x-session-token': session_token } }).then(response => {
+      axios.get(baseURL + 'api/user', { headers: { 'x-session-token': session_token } }).then(response => {
         if (validateUserData(response.data)) {
           user = deepCopyObj(response.data);
         }
