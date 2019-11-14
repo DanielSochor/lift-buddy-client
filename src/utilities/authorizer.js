@@ -19,6 +19,7 @@ var user = {};
     let session_token = localStorage.getItem('x-session-token');
 
     if (session_token) {
+        console.log(baseURL + 'api/user');
     //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(response => {
       axios.get(baseURL + 'api/user', { headers: { 'x-session-token': session_token } }).then(response => {
         if (validateUserData(response.data)) {
@@ -44,11 +45,11 @@ var user = {};
       // this extra call is not ideal, but we need to hack our way to getting the correct info on signin.  In the future, the API will need to be refactored to send back all the necessary info
       
       //axios.post(API.signin, signinObj).then(response => {
-      axios.post('/api/users/login', signinObj).then(response => {
+      axios.post(baseURL + 'api/users/login', signinObj).then(response => {
         let session_token = response.headers['x-session-token'];
         localStorage.setItem('x-session-token', session_token);
         //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(response => {
-        axios.get('/api/users', { headers: { 'x-session-token': session_token } }).then(response => {
+        axios.get(baseURL + 'api/users', { headers: { 'x-session-token': session_token } }).then(response => {
           user = deepCopyObj(response.data);
           console.log(user);
           //Pubsub.publish(NOTIF.SIGN_IN, null);
@@ -83,7 +84,7 @@ var user = {};
     if (validateSignupRequest(params)) {
       console.log('sent signup request');
       //axios.post(API.signup, {
-          axios.post('/api/users', {
+          axios.post(baseURL + 'api/users', {
 
         first_name: params.first_name,
         last_name: params.last_name,
@@ -99,11 +100,11 @@ var user = {};
         console.log(signinObj);
         // these TWO extra calls are not ideal, but we need to hack our way to getting the correct info on signup.  In the future, the API will need to be refactored to send back all the necessary info
         //axios.post(API.signin, signinObj).then(signinResp => {
-        axios.post('/api/users/login', signinObj).then(signinResp => {
+        axios.post(baseURL + 'api/users/login', signinObj).then(signinResp => {
           let session_token = signinResp.headers['x-session-token'];
           localStorage.setItem('x-session-token', session_token);
           //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(getResponse => {
-          axios.get('/api/users', { headers: { 'x-session-token': session_token } }).then(getResponse => {
+          axios.get(baseURL + 'api/users', { headers: { 'x-session-token': session_token } }).then(getResponse => {
             user = deepCopyObj(getResponse.data);
             console.log(user);
             //Pubsub.publish(NOTIF.SIGN_IN, null);
@@ -149,7 +150,7 @@ var user = {};
 
     axios({
         //url: API.signout,
-      url: '/api/users/login',
+      url: baseURL + 'api/users/login',
       method: 'delete',
       headers: {
         'x-session-token': session_token
