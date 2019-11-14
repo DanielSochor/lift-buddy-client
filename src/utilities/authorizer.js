@@ -3,7 +3,7 @@ import axios from 'axios';
 import Pubsub from './pubsub';
 //import { shallowCopyObj, deepCopyObj } from './helper';
 import { deepCopyObj } from './helper';
-import Data from './data';
+//import Data from './data';
 
 var Auth = {};
 
@@ -153,12 +153,12 @@ var user = {};
         'x-session-token': session_token
       }
     }).then(response => {
-      if (response.status == 200) {
+      if (response.status === 200) {
         user = {};
         localStorage.setItem('x-session-token', '');
         //Pubsub.publish(NOTIF.SIGN_OUT, null);
         Pubsub.publish('signout', null);
-        Data.handleSignout();
+        //Data.handleSignout();
         console.log('signout success');
       } else {
         // @TODO not sure what to do in a .then handler here
@@ -172,7 +172,51 @@ var user = {};
 
 })(Auth);
 
+const validateSigninRequest = (params) => {
+    // API requires either email or alias, and password
+    if ((params.alias || params.email_address) && params.password) {
+      return true;
+    }
+    return false;
+  }
+  
+  const validateSignupRequest = (params) => {
+    /* API requires all of:
+      first_name
+      last_name
+      email
+      alias
+      password
+    */
+    console.log(params);
+    if (params.first_name &&
+      params.last_name &&
+      params.email &&
+      params.alias &&
+      params.password &&
+      params.password_confirm) {
+      return true;
+    }
+  
+    return false;
+  }
 
+  const validateUserData = (data) => {
+    if (data.alias &&
+      data.created &&
+      data.email_address &&
+      data.first_name &&
+      data.last_name &&
+      data.updated &&
+      data.user_id) {
+      return true
+    }
+  
+    return false;
+  }
+
+
+export default Auth;
 
 
 
