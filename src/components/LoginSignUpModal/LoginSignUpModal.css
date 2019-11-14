@@ -1,0 +1,15 @@
+.ReactModal__Overlay{
+    background-image: url("../../images/runnerImage.jpg");
+    background-size: cover;
+}
+
+.ReactModal__Content{
+    opacity: .85;
+}
+
+.ReactModal__Content:focus{
+    height: 410px;
+}
+
+
+
