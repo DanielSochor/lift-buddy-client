@@ -25,6 +25,7 @@ var user = {};
         if (validateUserData(response.data)) {
           user = deepCopyObj(response.data);
         }
+        console.log('test test');
         console.log(user);
         //Pubsub.publish(NOTIF.SIGN_IN, null);
         Pubsub.publish('signin', null);
