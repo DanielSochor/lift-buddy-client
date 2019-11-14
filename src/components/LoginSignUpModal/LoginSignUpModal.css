@@ -5,7 +5,7 @@
 
 .ReactModal__Content{
     opacity: .80;
-    height: 3000px;   
+    height: 600px;   
 }
 
 .ReactModal__Content:focus{
