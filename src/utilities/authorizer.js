@@ -193,7 +193,7 @@ const validateSigninRequest = (params) => {
     console.log(params);
     if (params.first_name &&
       params.last_name &&
-      params.email &&
+      params.email_address &&
       params.alias &&
       params.password &&
       params.password_confirm) {
