@@ -25,14 +25,21 @@ var user = {};
         if (validateUserData(response.data)) {
           user = deepCopyObj(response.data);
         }
-        console.log('test test');
         console.log(user);
+        console.log('user is validated');
+        if (user === {}){
+          console.log('no existing session');
+        } else {
+          console.log('existing session');
+        }
         //Pubsub.publish(NOTIF.SIGN_IN, null);
         Pubsub.publish('signin', null);
       }).catch(error => {
+        console.log('session check failed');
         console.log(error);
       });
     }
+    console.log('session token check'); 
   }
 
   obj.sendSigninRequest = (params) => {

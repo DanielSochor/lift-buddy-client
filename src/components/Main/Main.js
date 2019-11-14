@@ -17,16 +17,16 @@ import LoginSignUpModal from '../LoginSignUpModal/LoginSignUpModal';
 function Main() {
 
   const [authenticated, setAuthenticated] = useState(false);
-  const [challengeType, setChallengeType] = useState('');
+  //-const [challengeType, setChallengeType] = useState('');
 
   useEffect(() => {
     Pubsub.subscribe('login', this, handleSignin);
     Pubsub.subscribe('logout', this, handleSignout);
-    Pubsub.subscribe('challengeType', this, handleChallengeType);
+    //-Pubsub.subscribe('challengeType', this, handleChallengeType);
     return (() => {
       Pubsub.unsubscribe('login', this);
       Pubsub.unsubscribe('logout', this);
-      Pubsub.unsubscribe('challengeType', this);
+      //-Pubsub.unsubscribe('challengeType', this);
     });
   }, []);
 
@@ -38,10 +38,10 @@ function Main() {
     setAuthenticated(true);
   }
 
-  const handleChallengeType = (challengeType) => {
-    setChallengeType(challengeType);
-    console.log('challenge type is: ' + challengeType);
-  }
+  //-const handleChallengeType = (challengeType) => {
+  //-  setChallengeType(challengeType);
+  //-  console.log('challenge type is: ' + challengeType);
+  //-}
 
   // const pageDirector = () => {
   //   if (authenticated) {
