@@ -190,10 +190,10 @@ function LoginSignUpModal() {
             <form>
                 {generateFormContents()}
                 <div className="row center">
-                    <button type='button' className='btn btn-link' onClick={toggleModalType}>{changeTypeBtnText}</button>
+                    <button type='button' className='btn btn-link waves-light light-blue darken-3' onClick={toggleModalType}>{changeTypeBtnText}</button>
                 </div>
                 <div className='modal-footer row center'>
-                    <button className="btn waves-effect waves-light" type="submit" name="action" id="signUpBtn" href="/homepage" onClick={authSubmit}>Submit<i className="material-icons right">send</i></button>
+                    <button className="btn waves-effect waves-light light-blue darken-3" type="submit" name="action" id="signUpBtn" href="/homepage" onClick={authSubmit}>Submit<i className="material-icons right">send</i></button>
                 </div>
                 {/* <div className="modal-footer">
                     <a className="modal-close waves-effect waves-green btn-flat" onClick={closeModal}>X</a>
