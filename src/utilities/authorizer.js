@@ -13,14 +13,13 @@ var user = {};
     // @TODO 
 
     const baseURL = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL;
-    console.log(baseURL);
+    console.log('baseURL is: ' + baseURL);
 
     obj.checkForExistingSession = () => {
         let session_token = localStorage.getItem('x-session-token');
-        console.log('session token is');
-        console.log(session_token);
         if (session_token) {
-            console.log(baseURL + 'api/user');
+            console.log('session token exists');
+            console.log(session_token);
             //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(response => {
             axios.get(baseURL + 'api/user', { headers: { 'x-session-token': session_token } }).then(response => {
                 if (validateUserData(response.data)) {
@@ -39,13 +38,14 @@ var user = {};
                 console.log('session check failed');
                 console.log(error);
             });
+        } else {
+            console.log('no session token exists');
         }
-        console.log('session token check');
     }
 
     obj.sendSigninRequest = (params) => {
         // API require email OR alias
-        // forcing email at the moment - may implement more elegant logic later
+        // forcing username at the moment - may implement more elegant logic later
         if (validateSigninRequest(params)) {
             let signinObj = {
                 username: params.username,
@@ -53,13 +53,14 @@ var user = {};
             };
             // this extra call is not ideal, but we need to hack our way to getting the correct info on signin.  In the future, the API will need to be refactored to send back all the necessary info
             console.log('pre sign in');
+            console.log(signinObj);
             //axios.post(API.signin, signinObj).then(response => {
-            console.log(baseURL + 'api/users/login');
-            axios.post(baseURL + 'api/users/login', signinObj).then(response => {
+            console.log(baseURL + 'api/user/login');
+            axios.post(baseURL + 'api/user/login', signinObj).then(response => {
                 let session_token = response.headers['x-session-token'];
                 localStorage.setItem('x-session-token', session_token);
                 //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(response => {
-                axios.get(baseURL + 'api/users', { headers: { 'x-session-token': session_token } }).then(response => {
+                axios.get(baseURL + 'api/user', { headers: { 'x-session-token': session_token } }).then(response => {
                     user = deepCopyObj(response.data);
                     console.log('attempt at /api/user')
                     console.log(user);
@@ -95,11 +96,11 @@ var user = {};
         if (validateSignupRequest(params)) {
             console.log('sent signup request');
             //axios.post(API.signup, {
-            axios.post(baseURL + 'api/users', {
+            axios.post(baseURL + 'api/user', {
                 //first_name: params.first_name,
                 //last_name: params.last_name,
                 //alias: params.alias,
-                email_address: params.email,
+                email_address: params.email_address,
                 username: params.username,
                 password: params.password,
                 password_confirm: params.password_confirm
@@ -109,15 +110,15 @@ var user = {};
                     //email: params.email,
                     password: params.password
                 };
-                console.log('(sign up requst) sigin obj is: ')
+                console.log('(sign up requst) signin object is: ')
                 console.log(signinObj);
                 // these TWO extra calls are not ideal, but we need to hack our way to getting the correct info on signup.  In the future, the API will need to be refactored to send back all the necessary info
                 //axios.post(API.signin, signinObj).then(signinResp => {
-                axios.post(baseURL + 'api/users/login', signinObj).then(signinResp => {
+                axios.post(baseURL + 'api/user/login', signinObj).then(signinResp => {
                     let session_token = signinResp.headers['x-session-token'];
                     localStorage.setItem('x-session-token', session_token);
                     //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(getResponse => {
-                    axios.get(baseURL + 'api/users', { headers: { 'x-session-token': session_token } }).then(getResponse => {
+                    axios.get(baseURL + 'api/user', { headers: { 'x-session-token': session_token } }).then(getResponse => {
                         user = deepCopyObj(getResponse.data);
                         console.log('post to login:')
                         console.log(user);
@@ -162,7 +163,7 @@ var user = {};
         let session_token = localStorage.getItem('x-session-token');
         axios({
             //url: API.signout,
-            url: baseURL + 'api/users/login',
+            url: baseURL + 'api/user/login',
             method: 'delete',
             headers: {
                 'x-session-token': session_token
@@ -207,7 +208,7 @@ const validateSignupRequest = (params) => {
         //params.first_name &&
         //params.last_name &&
         params.username &&
-        params.email &&
+        params.email_address &&
         //params.email_address &&
         //params.alias &&
         params.password &&
