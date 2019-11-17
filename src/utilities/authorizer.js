@@ -14,12 +14,14 @@ var user = {};
 
     const baseURL = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL;
     console.log('baseURL is: ' + baseURL);
+    console.log('local storage');
+    console.log(localStorage);
 
     obj.checkForExistingSession = () => {
         let session_token = localStorage.getItem('x-session-token');
         if (session_token) {
             console.log('session token exists');
-            console.log(session_token);
+            console.log('session token is: ' + session_token);
             //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(response => {
             axios.get(baseURL + 'api/user', { headers: { 'x-session-token': session_token } }).then(response => {
                 if (validateUserData(response.data)) {
