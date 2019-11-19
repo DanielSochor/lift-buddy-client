@@ -21,6 +21,8 @@ function LoginSignUpModal() {
     const [modalIsOpen, setModalIsOpen] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
 
+    const [firstNameVal, setFirstNameVal] = useState('');
+    const [lastNameVal, setLastNameVal] = useState('');
     const [usernameVal, setUsernameVal] = useState('');
     const [emailVal, setEmailVal] = useState('');
     const [passwordVal, setPasswordVal] = useState('');
@@ -77,6 +79,13 @@ function LoginSignUpModal() {
     // const closeModal = () => {
     //     setModalIsOpen(false);
     // }
+
+    const handleFirstNameChange = (event) => {
+        setFirstNameVal(event.target.value);
+    }
+    const handleLastNameChange = (event) => {
+        setLastNameVal(event.target.value);
+    }
     const handleUsernameChange = (event) => {
         setUsernameVal(event.target.value);
     }
@@ -108,6 +117,8 @@ function LoginSignUpModal() {
             Auth.sendSigninRequest(signinObj);
         } else if (modalType === loginType.signup) {
             let signupObj = {
+                first_name: firstNameVal,
+                last_name: lastNameVal,
                 email_address: emailVal,
                 username: usernameVal,
                 password: passwordVal,
@@ -142,14 +153,26 @@ function LoginSignUpModal() {
                 <div className='modal-content'>
                     <div className="row">
                         <div className="input-field col s12">
-                            <input id="signUpEmail" type="email" className="validate" value={emailVal} onChange={handleEmailChange} />
-                            <label htmlFor="signUpEmail">Email</label>
+                            <input id="signUpFirstName" type="text" className="validate" value={firstNameVal} onChange={handleFirstNameChange} />
+                            <label htmlFor="signUpFirstName">First Name</label>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <input id="signUpLastName" type="text" className="validate" value={lastNameVal} onChange={handleLastNameChange} />
+                            <label htmlFor="signUpLastName">Last Name</label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col s12">
                             <input id="signUpUsername" type="text" className="validate" value={usernameVal} onChange={handleUsernameChange} />
                             <label htmlFor="signUpUsername">Username</label>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <input id="signUpEmail" type="email" className="validate" value={emailVal} onChange={handleEmailChange} />
+                            <label htmlFor="signUpEmail">Email</label>
                         </div>
                     </div>
                     <div className="row">
