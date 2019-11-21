@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "https://healthy-people-front-end.herokuapp.com/static/css/main.e1b267ea.chunk.css",
-    "main.js": "https://healthy-people-front-end.herokuapp.com/static/js/main.6a26252d.chunk.js",
-    "main.js.map": "https://healthy-people-front-end.herokuapp.com/static/js/main.6a26252d.chunk.js.map",
-    "runtime~main.js": "https://healthy-people-front-end.herokuapp.com/static/js/runtime~main.928b7320.js",
-    "runtime~main.js.map": "https://healthy-people-front-end.herokuapp.com/static/js/runtime~main.928b7320.js.map",
-    "static/js/2.0bfc5617.chunk.js": "https://healthy-people-front-end.herokuapp.com/static/js/2.0bfc5617.chunk.js",
-    "static/js/2.0bfc5617.chunk.js.map": "https://healthy-people-front-end.herokuapp.com/static/js/2.0bfc5617.chunk.js.map",
-    "index.html": "https://healthy-people-front-end.herokuapp.com/index.html",
-    "precache-manifest.3d294075f59a0bbe5f3cc6d4326b767d.js": "https://healthy-people-front-end.herokuapp.com/precache-manifest.3d294075f59a0bbe5f3cc6d4326b767d.js",
-    "service-worker.js": "https://healthy-people-front-end.herokuapp.com/service-worker.js",
-    "static/css/main.e1b267ea.chunk.css.map": "https://healthy-people-front-end.herokuapp.com/static/css/main.e1b267ea.chunk.css.map",
-    "static/media/LoginSignUpModal.css": "https://healthy-people-front-end.herokuapp.com/static/media/WorkoutRack.a94aea0e.jpg"
+    "main.css": "https://lift-buddy-client.herokuapp.com/static/css/main.9bf12545.chunk.css",
+    "main.js": "https://lift-buddy-client.herokuapp.com/static/js/main.cc97ff9c.chunk.js",
+    "main.js.map": "https://lift-buddy-client.herokuapp.com/static/js/main.cc97ff9c.chunk.js.map",
+    "runtime~main.js": "https://lift-buddy-client.herokuapp.com/static/js/runtime~main.a700a6aa.js",
+    "runtime~main.js.map": "https://lift-buddy-client.herokuapp.com/static/js/runtime~main.a700a6aa.js.map",
+    "static/js/2.0bfc5617.chunk.js": "https://lift-buddy-client.herokuapp.com/static/js/2.0bfc5617.chunk.js",
+    "static/js/2.0bfc5617.chunk.js.map": "https://lift-buddy-client.herokuapp.com/static/js/2.0bfc5617.chunk.js.map",
+    "index.html": "https://lift-buddy-client.herokuapp.com/index.html",
+    "precache-manifest.fda37621bfb440bb1a900ecf4a88e7e4.js": "https://lift-buddy-client.herokuapp.com/precache-manifest.fda37621bfb440bb1a900ecf4a88e7e4.js",
+    "service-worker.js": "https://lift-buddy-client.herokuapp.com/service-worker.js",
+    "static/css/main.9bf12545.chunk.css.map": "https://lift-buddy-client.herokuapp.com/static/css/main.9bf12545.chunk.css.map",
+    "static/media/LoginSignUpModal.css": "https://lift-buddy-client.herokuapp.com/static/media/WorkoutRack.a94aea0e.jpg"
   }
 }
