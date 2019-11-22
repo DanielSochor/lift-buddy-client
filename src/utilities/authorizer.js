@@ -116,6 +116,9 @@ var user = {};
                 console.log(signinObj);
                 // these TWO extra calls are not ideal, but we need to hack our way to getting the correct info on signup.  In the future, the API will need to be refactored to send back all the necessary info
                 //axios.post(API.signin, signinObj).then(signinResp => {
+
+                    //axios.get(baseURL + '/api/users/signup'
+
                 axios.post(baseURL + 'api/users/login', signinObj).then(signinResp => {
                     console.log('sign in response');
                     console.log(signinResp.headers);
