@@ -117,7 +117,7 @@ var user = {};
                 // these TWO extra calls are not ideal, but we need to hack our way to getting the correct info on signup.  In the future, the API will need to be refactored to send back all the necessary info
                 //axios.post(API.signin, signinObj).then(signinResp => {
 
-                //axios.get(baseURL + '/api/users/signup').then(
+                axios.get(baseURL + '/api/users/signup').then(
 
                 axios.post(baseURL + 'api/users/login', signinObj).then(signinResp => {
                     console.log('sign in response');
@@ -149,7 +149,7 @@ var user = {};
                     //Pubsub.publish(NOTIF.AUTH_ERROR, errorObj);
                     Pubsub.publish('auth_error', errorObj);
                 })
-                //)
+                )
                 ;
             }).catch(error => {
                 // @TODO return error codes and display helpful messages to the user, i.e. incorrect password, etc.
