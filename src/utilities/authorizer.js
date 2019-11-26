@@ -121,7 +121,7 @@ var user = {};
 
                 axios.post(baseURL + 'api/users/login', signinObj).then(signinResp => {
                     console.log('sign in response');
-                    console.log(signinResp.headers);
+                    console.log(signinResp);
                     let session_token = signinResp.headers['x-session-token'];
                     console.log('session token is');
                     console.log(session_token);
