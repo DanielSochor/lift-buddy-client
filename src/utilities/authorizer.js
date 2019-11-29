@@ -23,7 +23,7 @@ var user = {};
             console.log('session token exists');
             console.log('session token is: ' + session_token);
             //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(response => {
-            axios.get(baseURL + 'api/users', { headers: { 'x-session-token': session_token } }).then(response => {
+            axios.get(baseURL + 'api/user', { headers: { 'x-session-token': session_token } }).then(response => {
                 if (validateUserData(response.data)) {
                     user = deepCopyObj(response.data);
                     console.log('deep copy of user is: ');
@@ -58,12 +58,12 @@ var user = {};
             console.log('pre sign in');
             console.log(signinObj);
             //axios.post(API.signin, signinObj).then(response => {
-            console.log(baseURL + 'api/users/login');
-            axios.post(baseURL + 'api/users/login', signinObj).then(response => {
+            console.log(baseURL + 'api/user/login');
+            axios.post(baseURL + 'api/user/login', signinObj).then(response => {
                 let session_token = response.headers['x-session-token'];
                 localStorage.setItem('x-session-token', session_token);
                 //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(response => {
-                axios.get(baseURL + 'api/users', { headers: { 'x-session-token': session_token } }).then(response => {
+                axios.get(baseURL + 'api/user', { headers: { 'x-session-token': session_token } }).then(response => {
                     user = deepCopyObj(response.data);
                     console.log('attempt at /api/user')
                     console.log(user);
@@ -99,7 +99,7 @@ var user = {};
         if (validateSignupRequest(params)) {
             console.log('sent signup request');
             //axios.post(API.signup, {
-            axios.post(baseURL + 'api/users', {
+            axios.post(baseURL + 'api/user', {
                 first_name: params.first_name,
                 last_name: params.last_name,
                 username: params.username,
@@ -117,9 +117,9 @@ var user = {};
                 // these TWO extra calls are not ideal, but we need to hack our way to getting the correct info on signup.  In the future, the API will need to be refactored to send back all the necessary info
                 //axios.post(API.signin, signinObj).then(signinResp => {
 
-                axios.get(baseURL + 'api/users/signup').then(
+                axios.get(baseURL + 'api/user/signup').then(
 
-                axios.post(baseURL + 'api/users/login', signinObj).then(signinResp => {
+                axios.post(baseURL + 'api/user/login', signinObj).then(signinResp => {
                     console.log('sign in response');
                     console.log(signinResp);
                     let session_token = signinResp.headers['x-session-token'];
@@ -127,7 +127,7 @@ var user = {};
                     console.log(session_token);
                     localStorage.setItem('x-session-token', session_token);
                     //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(getResponse => {
-                    axios.get(baseURL + 'api/users', { headers: { 'x-session-token': session_token } }).then(getResponse => {
+                    axios.get(baseURL + 'api/user', { headers: { 'x-session-token': session_token } }).then(getResponse => {
                         user = deepCopyObj(getResponse.data);
                         console.log('post to login:')
                         console.log(user);
@@ -174,7 +174,7 @@ var user = {};
         let session_token = localStorage.getItem('x-session-token');
         axios({
             //url: API.signout,
-            url: baseURL + 'api/users/login',
+            url: baseURL + 'api/user/login',
             method: 'delete',
             headers: {
                 'x-session-token': session_token
