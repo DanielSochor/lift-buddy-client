@@ -105,12 +105,11 @@ var user = {};
     //axios post to signup
     //
     //axios post to login
+
     obj.sendSignUpRequest = (params) => {
         if (validateSignUpRequest(params)) {
-            axios.post(API.signup, validatedSignUpRequest{
+            axios.post(API.signup, {
             })
-
-
         } else {
             console.log('Sign up request did not validate');
         }
