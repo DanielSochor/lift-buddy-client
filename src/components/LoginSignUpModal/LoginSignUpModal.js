@@ -114,7 +114,7 @@ function LoginSignUpModal() {
             };
             console.log('sign in obj: ');
             console.log(signinObj);
-            Auth.sendSigninRequest(signinObj);
+            Auth.sendSignInRequest(signinObj);
         } else if (modalType === loginType.signup) {
             let signupObj = {
                 first_name: firstNameVal,
@@ -126,7 +126,7 @@ function LoginSignUpModal() {
             };
             console.log('sign up obj: ');
             console.log(signupObj);
-            Auth.sendSignupRequest(signupObj);
+            Auth.sendSignUpRequest(signupObj);
         }
     }
 
