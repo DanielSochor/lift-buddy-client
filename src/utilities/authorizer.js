@@ -1,6 +1,6 @@
 import axios from 'axios';
-
 import Pubsub from './pubsub';
+import { API, NOTIF } from './constants';
 //import { shallowCopyObj, deepCopyObj } from './helper';
 import { deepCopyObj } from './helper';
 //import Data from './data';
@@ -95,11 +95,42 @@ var user = {};
         }
     }
 
+
+
+
+
+    //pseudo code what happens during signup
+    //signup values are passed from signup to authorizer
+    //validate the signup request
+    //axios post to signup
+    //
+    //axios post to login
+    obj.sendSignUpRequest = (params) => {
+        if (validateSignUpRequest(params)) {
+            axios.post(API.signup, validatedSignUpRequest{
+            })
+
+
+        } else {
+            console.log('Sign up request did not validate');
+        }
+    }
+
+
+
+
+
+
+
+
     obj.sendSignupRequest = (params) => {
         if (validateSignupRequest(params)) {
             console.log('sent signup request');
             //axios.post(API.signup, {
-            axios.post(baseURL + 'api/user', {
+            console.log('base URL is: ' + baseURL);
+            console.log('params are: ');
+            console.log(params);
+            axios.post(baseURL + 'api/user/signup', {
                 first_name: params.first_name,
                 last_name: params.last_name,
                 username: params.username,
@@ -119,20 +150,28 @@ var user = {};
 
                 axios.get(baseURL + 'api/user/signup').then(
 
-                axios.post(baseURL + 'api/user/login', signinObj).then(signinResp => {
-                    console.log('sign in response');
-                    console.log(signinResp);
-                    let session_token = signinResp.headers['x-session-token'];
-                    console.log('session token is');
-                    console.log(session_token);
-                    localStorage.setItem('x-session-token', session_token);
-                    //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(getResponse => {
-                    axios.get(baseURL + 'api/user', { headers: { 'x-session-token': session_token } }).then(getResponse => {
-                        user = deepCopyObj(getResponse.data);
-                        console.log('post to login:')
-                        console.log(user);
-                        //Pubsub.publish(NOTIF.SIGN_IN, null);
-                        Pubsub.publish('login', null);
+                    axios.post(baseURL + 'api/user/login', signinObj).then(signinResp => {
+                        console.log('sign in response');
+                        console.log(signinResp);
+                        let session_token = signinResp.headers['x-session-token'];
+                        console.log('session token is');
+                        console.log(session_token);
+                        localStorage.setItem('x-session-token', session_token);
+                        //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(getResponse => {
+                        axios.get(baseURL + 'api/user', { headers: { 'x-session-token': session_token } }).then(getResponse => {
+                            user = deepCopyObj(getResponse.data);
+                            console.log('post to login:')
+                            console.log(user);
+                            //Pubsub.publish(NOTIF.SIGN_IN, null);
+                            Pubsub.publish('login', null);
+                        }).catch(error => {
+                            console.log(error);
+                            let errorObj = {
+                                message: 'Error signing up, please try again'
+                            };
+                            //Pubsub.publish(NOTIF.AUTH_ERROR, errorObj);
+                            Pubsub.publish('auth_error', errorObj);
+                        });
                     }).catch(error => {
                         console.log(error);
                         let errorObj = {
@@ -140,17 +179,9 @@ var user = {};
                         };
                         //Pubsub.publish(NOTIF.AUTH_ERROR, errorObj);
                         Pubsub.publish('auth_error', errorObj);
-                    });
-                }).catch(error => {
-                    console.log(error);
-                    let errorObj = {
-                        message: 'Error signing up, please try again'
-                    };
-                    //Pubsub.publish(NOTIF.AUTH_ERROR, errorObj);
-                    Pubsub.publish('auth_error', errorObj);
-                })
+                    })
                 )
-                ;
+                    ;
             }).catch(error => {
                 // @TODO return error codes and display helpful messages to the user, i.e. incorrect password, etc.
                 // Potentially make more DRY
@@ -215,6 +246,10 @@ const validateSigninRequest = (params) => {
 }
 
 const validateSignupRequest = (params) => {
+
+}
+
+const validateSignUpRequest = (params) => {
     if (
         params.first_name &&
         params.last_name &&
