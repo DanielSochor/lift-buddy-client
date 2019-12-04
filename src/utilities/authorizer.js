@@ -246,8 +246,17 @@ const validateSigninRequest = (params) => {
 }
 
 const validateSignupRequest = (params) => {
-
-}
+    if (params.first_name &&
+        params.last_name &&
+        params.username &&
+        params.email_address &&
+        params.password &&
+        params.password_confirm) {
+        return true;
+    } else {
+        return false;
+    }
+};
 
 const validateSignUpRequest = (params) => {
     if (
