@@ -108,7 +108,9 @@ var user = {};
 
     obj.sendSignUpRequest = (params) => {
         if (validateSignUpRequest(params)) {
+            console.log('API signup is' + API.signup);
             axios.post(API.signup, {
+                
             })
         } else {
             console.log('Sign up request did not validate');
