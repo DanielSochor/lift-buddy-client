@@ -116,6 +116,11 @@ var user = {};
                 email_address: params.email_address,
                 password: params.password,
                 password_confirm: params.password_confirm
+            }).then(response => {
+                let signInObj = {
+                    username: params.username,
+                    password: params.password
+                };
             })
         } else {
             console.log('Sign up request did not validate');
