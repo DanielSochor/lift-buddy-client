@@ -117,6 +117,9 @@ var user = {};
         }
     }
 
+    obj.sendSignInRequest = (params) => {
+    }
+
 
 
 
