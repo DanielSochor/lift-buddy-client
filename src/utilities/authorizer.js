@@ -117,10 +117,13 @@ var user = {};
                 password: params.password,
                 password_confirm: params.password_confirm
             }).then(response => {
+                console.log('response is: ');
+                console.log(response);
                 let signInObj = {
                     username: params.username,
                     password: params.password
                 };
+                console.log(signInObj);
             })
         } else {
             console.log('Sign up request did not validate');
@@ -136,7 +139,7 @@ var user = {};
 
 
 
-
+//OLD OLD OLD OLD OLD OLD OLD
     obj.sendSignupRequest = (params) => {
         if (validateSignupRequest(params)) {
             console.log('sent signup request');
