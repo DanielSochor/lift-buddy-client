@@ -124,13 +124,17 @@ var user = {};
                     password: params.password
                 };
                 console.log(signInObj);
+                obj.sendLogInRequest(signInObj);
             })
         } else {
             console.log('Sign up request did not validate');
         }
     }
 
-    obj.sendSignInRequest = (params) => {
+    obj.sendLogInRequest = (params) => {
+        console.log('sendDignInRequest called');
+        console.log('params are');
+        console.log(params);
     }
 
 
@@ -139,7 +143,7 @@ var user = {};
 
 
 
-//OLD OLD OLD OLD OLD OLD OLD
+    //OLD OLD OLD OLD OLD OLD OLD
     obj.sendSignupRequest = (params) => {
         if (validateSignupRequest(params)) {
             console.log('sent signup request');
