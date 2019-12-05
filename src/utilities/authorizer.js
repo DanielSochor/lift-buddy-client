@@ -135,6 +135,15 @@ var user = {};
         console.log('sendDignInRequest called');
         console.log('params are');
         console.log(params);
+        if (validateLogInRequest(params)) {
+            console.log('API Login is: ' + API.login);
+            axios.post(baseURL + API.login, params).then(response => {
+                let session_token = response.headers['x-session-token'];
+                localStorage.setItem('x-session-token', session_token);
+            }).catch(error => {
+
+            });
+        }
     }
 
 
@@ -266,7 +275,7 @@ const validateSigninRequest = (params) => {
     return false;
 }
 
-const validateSignupRequest = (params) => {
+const validateSignUpRequest = (params) => {
     if (params.first_name &&
         params.last_name &&
         params.username &&
@@ -279,7 +288,22 @@ const validateSignupRequest = (params) => {
     }
 };
 
-const validateSignUpRequest = (params) => {
+const validateLogInRequest = (params) => {
+    if (params.username &&
+        params.password) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+
+
+
+
+
+
+const validateSignupRequest = (params) => {
     if (
         params.first_name &&
         params.last_name &&
