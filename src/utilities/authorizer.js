@@ -138,8 +138,9 @@ var user = {};
         if (validateLogInRequest(params)) {
             console.log('API Login is: ' + API.login);
             axios.post(baseURL + API.login, params).then(response => {
-                let session_token = response.headers['x-session-token'];
-                localStorage.setItem('x-session-token', session_token);
+                console.log('succesful test of API.login');
+                //let session_token = response.headers['x-session-token'];
+                //localStorage.setItem('x-session-token', session_token);
             }).catch(error => {
 
             });
