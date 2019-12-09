@@ -119,28 +119,30 @@ var user = {};
             }).then(response => {
                 console.log('response is: ');
                 console.log(response);
-                let signInObj = {
+                let logInObj = {
                     username: params.username,
                     password: params.password
                 };
-                console.log(signInObj);
-                obj.sendLogInRequest(signInObj);
+                console.log('authorizer sendSignUpRequest log in object is: ');
+                console.log(logInObj);
+                obj.sendLogInRequest(logInObj);
             })
         } else {
             console.log('Sign up request did not validate');
         }
     }
 
-    obj.sendLogInRequest = (params) => {
-        console.log('sendDignInRequest called');
-        console.log('params are');
-        console.log(params);
-        if (validateLogInRequest(params)) {
+    obj.sendLogInRequest = (logInObj) => {
+        console.log('authorizer sendLogInRequest log in object is: ');
+        console.log(logInObj);
+        if (validateLogInRequest(logInObj)) {
             console.log('API Login is: ' + API.login);
-            axios.post(baseURL + API.login, params).then(response => {
-                console.log('succesful test of API.login');
-                //let session_token = response.headers['x-session-token'];
-                //localStorage.setItem('x-session-token', session_token);
+            axios.post(baseURL + API.login, logInObj).then(logInObjResponse => {
+                console.log('succesful hit of API.login');
+                let session_token = logInObjResponse.headers['x-session-token'];
+                localStorage.setItem('x-session-token', session_token);
+                console.log('session token is: ');
+                console.log(session_token);
             }).catch(error => {
 
             });
@@ -289,9 +291,9 @@ const validateSignUpRequest = (params) => {
     }
 };
 
-const validateLogInRequest = (params) => {
-    if (params.username &&
-        params.password) {
+const validateLogInRequest = (logInObj) => {
+    if (logInObj.username &&
+        logInObj.password) {
         return true;
     } else {
         return false;
