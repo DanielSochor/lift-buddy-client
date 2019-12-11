@@ -137,9 +137,11 @@ var user = {};
         console.log(logInObj);
         if (validateLogInRequest(logInObj)) {
             console.log('API Login is: ' + API.login);
-            axios.post(baseURL + API.login, logInObj).then(logInObjResponse => {
-                console.log('succesful hit of API.login');
-                let session_token = logInObjResponse.headers['x-session-token'];
+            axios.post(baseURL + API.login, logInObj, {withCredentials: true}, { 'Access-Control-Allow-Origin': baseURL} ).then(logInResponse => {
+                console.log('successful hit of API.login');
+                console.log('logInResponse is');
+                console.log(logInResponse);
+                let session_token = logInResponse.headers['x-session-token'];
                 localStorage.setItem('x-session-token', session_token);
                 console.log('session token is: ');
                 console.log(session_token);
