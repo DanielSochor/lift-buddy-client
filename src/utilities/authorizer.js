@@ -137,7 +137,7 @@ var user = {};
         console.log(logInObj);
         if (validateLogInRequest(logInObj)) {
             console.log('API Login is: ' + API.login);
-            axios.post(baseURL + API.login, logInObj, {withCredentials: true}, { 'Access-Control-Allow-Origin': baseURL} ).then(logInResponse => {
+            axios.post(baseURL + API.login, logInObj, {withCredentials:true}, {'Access-Control-Allow-Origin': 'http://localhost:3000/'},{'access-control-allow-credentials': true} ).then(logInResponse => {
                 console.log('successful hit of API.login');
                 console.log('logInResponse is');
                 console.log(logInResponse);
