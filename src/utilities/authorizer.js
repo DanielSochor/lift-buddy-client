@@ -196,6 +196,10 @@ var user = {};
                         console.log(session_token);
                         localStorage.setItem('x-session-token', session_token);
                         //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(getResponse => {
+                        
+//TODO: XXXXXXX What does this extra get call do? Should this duplicate the check of existing token?
+//why deepCopyObj?                        
+                        
                         axios.get(baseURL + 'api/user', { headers: { 'x-session-token': session_token } }).then(getResponse => {
                             user = deepCopyObj(getResponse.data);
                             console.log('post to login:')
