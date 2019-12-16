@@ -114,7 +114,7 @@ function LoginSignUpModal() {
             };
             console.log('sign in obj: ');
             console.log(signinObj);
-            Auth.sendSignInRequest(signinObj);
+            Auth.sendLogInRequest(signinObj);
         } else if (modalType === loginType.signup) {
             let signupObj = {
                 first_name: firstNameVal,
