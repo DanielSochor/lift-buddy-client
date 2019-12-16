@@ -24,26 +24,7 @@ var user = {};
         if (session_token) {
             console.log('session token exists');
             console.log('session token is: ' + session_token);
-            //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(response => {
             obj.getUserInfo(session_token);
-            //axios.get(baseURL + 'api/user/userinfo', { headers: { 'x-session-token': session_token } }).then(response => {
-                //if (validateUserData(response.data)) {
-                    //user = deepCopyObj(response.data);
-                    //console.log('deep copy of user is: ');
-                   // console.log(user);
-                    //console.log('user is validated');
-                //}
-                //if (user === {}) {
-                //    console.log('no existing session');
-                //} else {
-                 //   console.log('existing session');
-                //}
-                //Pubsub.publish(NOTIF.SIGN_IN, null);
-                //Pubsub.publish('login', null);
-            //}).catch(error => {
-            //    console.log('session check failed');
-            //    console.log(error);
-            //});
         } else {
             console.log('no session token exists');
         }
