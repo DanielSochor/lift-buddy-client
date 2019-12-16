@@ -148,7 +148,7 @@ var user = {};
                 localStorage.setItem('x-session-token', session_token);
                 console.log('session token is: ');
                 console.log(session_token);
-                obj.getUserInfo();
+                obj.getUserInfo(session_token);
             }).catch(error => {
 
             });
@@ -157,11 +157,11 @@ var user = {};
 
     //gets all data related to the user and places it in the user object
     //assumes local session token is created
-    obj.getUserInfo = () => {
-        let session_token = localStorage['x-session-token'];
-        console.log('localStorage is: ');
-        console.log(session_token);
-        console.log(session_token.session_token);
+    obj.getUserInfo = (session_token) => {
+        //let session_token = localStorage['x-session-token'];
+        //console.log('localStorage is: ');
+        //console.log(session_token);
+        //console.log(session_token.session_token);
         axios.get(baseURL + API.getUserInfo, { headers: { 'x-session-token': session_token }}).then(getResponse => {
             user = deepCopyObj(getResponse.data);
             console.log('deep copied user is: ');
