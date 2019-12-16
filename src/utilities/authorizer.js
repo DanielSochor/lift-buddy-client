@@ -161,11 +161,11 @@ var user = {};
         let session_token = localStorage['x-session-token'];
         console.log('localStorage is: ');
         console.log(session_token);
-        // axios.get(baseURL + API.getUserInfo, { headers: { 'x-session-token': session_token } }).then(getResponse => {
-        //     user = deepCopyObj(getResponse.data);
-        //     console.log('deep copied user is: ');
-        //     console.log(user);
-        // })
+        axios.get(baseURL + API.getUserInfo, session_token).then(getResponse => {
+            user = deepCopyObj(getResponse.data);
+            console.log('deep copied user is: ');
+            console.log(user);
+        })
     }
 
     //OLD OLD OLD OLD OLD OLD OLD
