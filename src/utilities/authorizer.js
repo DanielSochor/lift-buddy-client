@@ -25,24 +25,25 @@ var user = {};
             console.log('session token exists');
             console.log('session token is: ' + session_token);
             //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(response => {
-            axios.get(baseURL + 'api/user/userinfo', { headers: { 'x-session-token': session_token } }).then(response => {
-                if (validateUserData(response.data)) {
-                    user = deepCopyObj(response.data);
-                    console.log('deep copy of user is: ');
-                    console.log(user);
-                    console.log('user is validated');
-                }
-                if (user === {}) {
-                    console.log('no existing session');
-                } else {
-                    console.log('existing session');
-                }
+            obj.getUserInfo(session_token);
+            //axios.get(baseURL + 'api/user/userinfo', { headers: { 'x-session-token': session_token } }).then(response => {
+                //if (validateUserData(response.data)) {
+                    //user = deepCopyObj(response.data);
+                    //console.log('deep copy of user is: ');
+                   // console.log(user);
+                    //console.log('user is validated');
+                //}
+                //if (user === {}) {
+                //    console.log('no existing session');
+                //} else {
+                 //   console.log('existing session');
+                //}
                 //Pubsub.publish(NOTIF.SIGN_IN, null);
-                Pubsub.publish('login', null);
-            }).catch(error => {
-                console.log('session check failed');
-                console.log(error);
-            });
+                //Pubsub.publish('login', null);
+            //}).catch(error => {
+            //    console.log('session check failed');
+            //    console.log(error);
+            //});
         } else {
             console.log('no session token exists');
         }
@@ -141,17 +142,17 @@ var user = {};
             console.log('API Login is: ' + API.login);
             axios.post(baseURL + API.login, logInObj)
                 .then(logInResponse => {
-                console.log('successful hit of API.login');
-                console.log('logInResponse is');
-                console.log(logInResponse);
-                let session_token = logInResponse.headers['x-session-token'];
-                localStorage.setItem('x-session-token', session_token);
-                console.log('session token is: ');
-                console.log(session_token);
-                obj.getUserInfo(session_token);
-            }).catch(error => {
+                    console.log('successful hit of API.login');
+                    console.log('logInResponse is');
+                    console.log(logInResponse);
+                    let session_token = logInResponse.headers['x-session-token'];
+                    localStorage.setItem('x-session-token', session_token);
+                    console.log('session token is: ');
+                    console.log(session_token);
+                    obj.getUserInfo(session_token);
+                }).catch(error => {
 
-            });
+                });
         }
     }
 
@@ -162,11 +163,17 @@ var user = {};
         //console.log('localStorage is: ');
         //console.log(session_token);
         //console.log(session_token.session_token);
-        axios.get(baseURL + API.getUserInfo, { headers: { 'x-session-token': session_token }}).then(getResponse => {
-            user = deepCopyObj(getResponse.data);
-            console.log('deep copied user is: ');
-            console.log(user);
-        })
+        axios.get(baseURL + API.getUserInfo, { headers: { 'x-session-token': session_token } })
+            .then(response => {
+                if (validateUserData(response.data)) {
+                    user = deepCopyObj(response.data);
+                  }
+                  console.log('deep copied user is: ');
+                  console.log(user);
+                  Pubsub.publish(NOTIF.SIGN_IN, null);
+                }).catch(error => {
+                  console.log(error);
+                });
     }
 
     //OLD OLD OLD OLD OLD OLD OLD
@@ -205,10 +212,10 @@ var user = {};
                         console.log(session_token);
                         localStorage.setItem('x-session-token', session_token);
                         //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(getResponse => {
-                        
-//TODO: XXXXXXX What does this extra get call do? Should this duplicate the check of existing token?
-//why deepCopyObj?                        
-                        
+
+                        //TODO: XXXXXXX What does this extra get call do? Should this duplicate the check of existing token?
+                        //why deepCopyObj?                        
+
                         axios.get(baseURL + 'api/user', { headers: { 'x-session-token': session_token } }).then(getResponse => {
                             user = deepCopyObj(getResponse.data);
                             console.log('post to login:')
