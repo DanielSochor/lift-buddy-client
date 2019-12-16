@@ -25,7 +25,7 @@ var user = {};
             console.log('session token exists');
             console.log('session token is: ' + session_token);
             //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(response => {
-            axios.get(baseURL + 'api/user', { headers: { 'x-session-token': session_token } }).then(response => {
+            axios.get(baseURL + 'api/user/userinfo', { headers: { 'x-session-token': session_token } }).then(response => {
                 if (validateUserData(response.data)) {
                     user = deepCopyObj(response.data);
                     console.log('deep copy of user is: ');
