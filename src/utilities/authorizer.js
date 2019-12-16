@@ -132,8 +132,16 @@ var user = {};
                     console.log(session_token);
                     obj.getUserInfo(session_token);
                 }).catch(error => {
-
+                    let errorObj = {
+                        message: 'Error logging in, please try again'
+                    };
+                    Pubsub.publish(NOTIF.AUTH_ERROR, errorObj);
                 });
+        } else {
+            let errorObj = {
+                message: 'Please fill in the required fields'
+            };
+            Pubsub.publish(NOTIF.AUTH_ERROR, errorObj);
         }
     }
 
@@ -142,13 +150,13 @@ var user = {};
             .then(response => {
                 if (validateUserData(response.data)) {
                     user = deepCopyObj(response.data);
-                  }
-                  console.log('deep copied user is: ');
-                  console.log(user);
-                  Pubsub.publish(NOTIF.SIGN_IN, null);
-                }).catch(error => {
-                  console.log(error);
-                });
+                }
+                console.log('deep copied user is: ');
+                console.log(user);
+                Pubsub.publish(NOTIF.SIGN_IN, null);
+            }).catch(error => {
+                console.log(error);
+            });
     }
 
     //OLD OLD OLD OLD OLD OLD OLD
