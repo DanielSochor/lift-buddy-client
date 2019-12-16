@@ -30,59 +30,6 @@ var user = {};
         }
     }
 
-    obj.sendSigninRequest = (params) => {
-        // API require email OR alias
-        // forcing username at the moment - may implement more elegant logic later
-        if (validateSigninRequest(params)) {
-            let signinObj = {
-                username: params.username,
-                password: params.password
-            };
-            // this extra call is not ideal, but we need to hack our way to getting the correct info on signin.  In the future, the API will need to be refactored to send back all the necessary info
-            console.log('pre sign in');
-            console.log(signinObj);
-            //axios.post(API.signin, signinObj).then(response => {
-            console.log(baseURL + 'api/user/login');
-            axios.post(baseURL + 'api/user/login', signinObj).then(response => {
-                let session_token = response.headers['x-session-token'];
-                localStorage.setItem('x-session-token', session_token);
-                //axios.get(API.getUsers, { headers: { 'x-session-token': session_token } }).then(response => {
-                axios.get(baseURL + 'api/user', { headers: { 'x-session-token': session_token } }).then(response => {
-                    user = deepCopyObj(response.data);
-                    console.log('attempt at /api/user')
-                    console.log(user);
-                    //Pubsub.publish(NOTIF.SIGN_IN, null);
-                    Pubsub.publish('login', null);
-                }).catch(error => {
-                    console.log(error);
-                    let errorObj = {
-                        message: 'Error signing in, please try again'
-                    };
-                    //Pubsub.publish(NOTIF.AUTH_ERROR, errorObj);
-                    Pubsub.publish('auth_error', errorObj);
-                });
-            }).catch(error => {
-                // @TODO return error codes and display helpful messages to the user, i.e. incorrect password, etc.
-                // Potentially make more DRY
-                let errorObj = {
-                    message: 'Error signing in, please try again'
-                };
-                //Pubsub.publish(NOTIF.AUTH_ERROR, errorObj);
-                Pubsub.publish('auth_error', errorObj);
-            });
-        } else {
-            let errorObj = {
-                message: 'Please fill in the required fields'
-            };
-            //Pubsub.publish(NOTIF.AUTH_ERROR, errorObj);
-            Pubsub.publish('auth_error', errorObj);
-        }
-    }
-
-
-
-
-
     //pseudo code what happens during signup
     //signup values are passed from signup to authorizer
     //validate the signup request
@@ -189,7 +136,7 @@ var user = {};
 
 })(Auth);
 
-const validateSigninRequest = (params) => {
+const XvalidateSigninRequest = (params) => {
     // API requires either email or alias, and password
     //if ((params.alias || params.email_address) && params.password) {
     //return true;
