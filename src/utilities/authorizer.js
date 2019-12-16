@@ -148,17 +148,23 @@ var user = {};
                 localStorage.setItem('x-session-token', session_token);
                 console.log('session token is: ');
                 console.log(session_token);
+                obj.getUserInfo();
             }).catch(error => {
 
             });
         }
     }
 
-
-
-
-
-
+    //gets all data related to the user and places it in the user object
+    obj.getUserInfo = () => {
+        console.log('localStorage is: ');
+        console.log(localStorage['x-session-token']);
+        // axios.get(baseURL + API.getUserInfo, { headers: { 'x-session-token': session_token } }).then(getResponse => {
+        //     user = deepCopyObj(getResponse.data);
+        //     console.log('deep copied user is: ');
+        //     console.log(user);
+        // })
+    }
 
     //OLD OLD OLD OLD OLD OLD OLD
     obj.sendSignupRequest = (params) => {
