@@ -156,9 +156,11 @@ var user = {};
     }
 
     //gets all data related to the user and places it in the user object
+    //assumes local session token is created
     obj.getUserInfo = () => {
+        let session_token = localStorage['x-session-token'];
         console.log('localStorage is: ');
-        console.log(localStorage['x-session-token']);
+        console.log(session_token);
         // axios.get(baseURL + API.getUserInfo, { headers: { 'x-session-token': session_token } }).then(getResponse => {
         //     user = deepCopyObj(getResponse.data);
         //     console.log('deep copied user is: ');
