@@ -136,21 +136,6 @@ var user = {};
 
 })(Auth);
 
-const XvalidateSigninRequest = (params) => {
-    // API requires either email or alias, and password
-    //if ((params.alias || params.email_address) && params.password) {
-    //return true;
-    //}
-    //return false;
-    if ((params.username || params.email_address) && params.password) {
-        console.log('user is validated');
-        //if (params.username && params.password) {
-        return true;
-    }
-    console.log('user is not validated');
-    return false;
-}
-
 const validateSignUpRequest = (params) => {
     if (params.first_name &&
         params.last_name &&
