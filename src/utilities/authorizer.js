@@ -97,6 +97,15 @@ var user = {};
             });
     }
 
+    obj.sendLogOutRequest = () => {
+        let session_token = localStorage.getItem('x-session-token', session_token);
+        axios.get(baseURL + API.login, { headers: { 'x-session-token': session_token } })
+        .then(response => {
+        }).catch(error => {
+            console.log(error);
+        });
+    }
+
     obj.sendSignoutRequest = () => {
         // @TODO need to verify what direction we're taking with the session token business
         let session_token = localStorage.getItem('x-session-token');
