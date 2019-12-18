@@ -5,8 +5,6 @@ import { API, NOTIF } from './constants';
 import { deepCopyObj } from './helper';
 //import Data from './data';
 
-//axios.defaults.withCredentials = true;
-
 var Auth = {};
 
 var user = {};
@@ -29,13 +27,6 @@ var user = {};
             console.log('no session token exists');
         }
     }
-
-    //pseudo code what happens during signup
-    //signup values are passed from signup to authorizer
-    //validate the signup request
-    //axios post to signup
-    //
-    //axios post to login
 
     obj.sendSignUpRequest = (params) => {
         if (validateSignUpRequest(params)) {
@@ -157,28 +148,6 @@ const validateLogInRequest = (logInObj) => {
         return false;
     }
 };
-
-
-
-
-
-
-
-const validateSignupRequest = (params) => {
-    if (
-        params.first_name &&
-        params.last_name &&
-        params.username &&
-        params.email_address &&
-        //params.alias &&
-        params.password &&
-        params.password_confirm) {
-        console.log('signup has the correct parameters');
-        return true;
-    }
-    console.log('signup does not have the correct parameters');
-    return false;
-}
 
 const validateUserData = (data) => {
     if (
