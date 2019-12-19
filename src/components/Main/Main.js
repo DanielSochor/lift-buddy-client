@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 //import './main.css';
 //-import Run from "../../pages/Run/Run";
 import Pubsub from '../../utilities/pubsub';
-import LoginSignUpModal from '../LogInSignUpModal/LogInSignUpModal';
+import LogInSignUpModal from '../LogInSignUpModal/LogInSignUpModal';
 import NavBar from '../NavBar/NavBar';
 //import Challenge from '../Challenge/Challenge';
 //import Auth from '../../utilities/authorizer';
@@ -71,7 +71,7 @@ function Main() {
         </div>
       </Router> */}
       <NavBar />
-      <LoginSignUpModal />
+      <LogInSignUpModal />
       {/* <FAB /> */}
       {/* {pageDirector()} */}
     </div>
