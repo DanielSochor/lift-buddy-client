@@ -1,16 +1,16 @@
-import React from './node_modules/react';
+import React from 'react';
 //import './navbar.css';
 
 // Component imports
-import NavbarBrand from '../navbarBrand/navbarBrand';
-import NavbarAuthDropdown from '../navbarAuthDropdown/navbarAuthDropdown';
-import AuthModal from '../authModal/authModal';
+//import NavbarBrand from '../navbarBrand/navbarBrand';
+//import NavbarAuthDropdown from '../navbarAuthDropdown/navbarAuthDropdown';
+//import AuthModal from '../authModal/authModal';
 
-function Header() {
+function NavBar() {
 
   return (
     <nav className='navbar navbar-expand navbar-dark bg-dark'>
-      <NavbarBrand />
+      {/* <NavbarBrand /> */}
 
       <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
         <span className='navbar-toggler-icon'></span>
@@ -18,12 +18,12 @@ function Header() {
 
       <div className='collapse navbar-collapse' id='navbarSupportedContent'>
         <ul className='navbar-nav ml-auto'>
-          <NavbarAuthDropdown />
+          {/* <NavbarAuthDropdown /> */}
         </ul>
       </div>
-      <AuthModal />
+      {/* <AuthModal /> */}
     </nav>
   );
 }
 
-export default Header;
+export default NavBar;
