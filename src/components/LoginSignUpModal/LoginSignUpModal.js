@@ -4,6 +4,8 @@ import Modal from '../../../node_modules/react-modal/lib';
 import Auth from '../../utilities/authorizer';
 import Pubsub from '../../utilities/pubsub';
 
+import { NOTIF, AUTH_MODAL_TYPES } from '../../utilities/constants';
+
 const changeTypeBtnTextValues = {
     login: 'Don\'t have an account?',
     signup: 'Already have an account?'
@@ -30,8 +32,8 @@ function LogInSignUpModal() {
 
     useEffect(() => {
         //Pubsub.subscribe('modal_toogle', this, handleModalToggle);
-        Pubsub.subscribe('login', this, handleLogin);
-        Pubsub.subscribe('logout', this, handleSignout);
+        Pubsub.subscribe(NOTIF.LOG_IN, this, handleLogIn);
+        Pubsub.subscribe(NOTIF.LOG_OUT, this, handleLogOut);
         Pubsub.subscribe('auth_error', this, handleErrorInfo);
         Auth.checkForExistingSession();
         return (() => {
@@ -41,6 +43,10 @@ function LogInSignUpModal() {
             Pubsub.unsubscribe('auth_error', this);
         });
     }, []);
+
+    useEffect(() => {
+        Auth.checkForExistingSession();
+      }, []);
 
     // const handleModalToggle = (type) => {
     //     if (type === loginType.login) {
@@ -63,13 +69,14 @@ function LogInSignUpModal() {
         setChangeTypeBtnText(newChangeBtnText);
     }
 
-    const handleLogin = () => {
+    const handleLogIn = () => {
         setModalIsOpen(false);
         //Pubsub.publish('login', true);
     }
 
-    const handleSignout = () => {
+    const handleLogOut = () => {
         setModalIsOpen(true);
+        //TODO add sign up and log in buttons to NAV eventually, now bring back up the modal
         //Pubsub.publish('login', false);
     }
 
