@@ -3,6 +3,10 @@ const baseURL = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_
 
 // Notification strings for pubsub
 export const NOTIF = {
+    LOG_IN: 'login',
+    LOG_OUT: 'logout',
+    SIGN_UP: 'signup',
+    AUTH_ERROR: 'auth_error'
 };
 
 // API routes
