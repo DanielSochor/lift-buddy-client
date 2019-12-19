@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from '../../../node_modules/react';
-import "./LoginSignUpModal.css"
-import Modal from '../../../node_modules/react-modal';
+import "./LogInSignUpModal.css"
+import Modal from '../../../node_modules/react-modal/lib';
 import Auth from '../../utilities/authorizer';
 import Pubsub from '../../utilities/pubsub';
 
@@ -14,7 +14,7 @@ const loginType = {
     signup: 'Sign Up'
 };
 
-function LoginSignUpModal() {
+function LogInSignUpModal() {
 
     const [modalType, setModalType] = useState(loginType.login);
     const [changeTypeBtnText, setChangeTypeBtnText] = useState(changeTypeBtnTextValues.login);
@@ -228,4 +228,4 @@ function LoginSignUpModal() {
 
 // colors for buttons: https://materializecss.com/color.html
 
-export default LoginSignUpModal;
+export default LogInSignUpModal;
