@@ -13,7 +13,6 @@ const authSubmit = (event) => {
   event.preventDefault();
 }
 
-
 function NavBar() {
 
   return (
