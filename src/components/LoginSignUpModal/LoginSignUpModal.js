@@ -172,11 +172,11 @@ function LogInSignUpModal() {
                     </div>
                     <div className='form-group'>
                         <label>Password</label>
-                        <input placeholder='first name' value={passwordVal} onChange={handlePasswordChange} />
+                        <input placeholder='password' value={passwordVal} onChange={handlePasswordChange} />
                     </div>
                     <div className='form-group'>
                         <label>Confirm Password</label>
-                        <input placeholder='first name' value={confirmPasswordVal} onChange={handleConfirmPasswordChange} />
+                        <input placeholder='password' value={confirmPasswordVal} onChange={handleConfirmPasswordChange} />
                     </div>
                 </div>
             )
