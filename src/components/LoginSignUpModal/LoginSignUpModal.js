@@ -46,7 +46,7 @@ function LogInSignUpModal() {
 
     useEffect(() => {
         Auth.checkForExistingSession();
-      }, []);
+    }, []);
 
     // const handleModalToggle = (type) => {
     //     if (type === loginType.login) {
@@ -140,65 +140,49 @@ function LogInSignUpModal() {
     const generateFormContents = () => {
         if (modalType === loginType.login) {
             return (
-                <div className='modal-content'>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="loginUsername" type="text" className="validate" value={usernameVal} onChange={handleUsernameChange} />
-                            <label htmlFor="loginUsername">Username</label>
-                        </div>
+                <div className='modal-body'>
+                    <div className='form-group'>
+                        <label>Username</label>
+                        <input placeholder='username' value={usernameVal} onChange={handleUsernameChange} />
                     </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="loginPassword" type="password" className="validate" value={passwordVal} onChange={handlePasswordChange} />
-                            <label htmlFor="loginPassword">Password</label>
-                        </div>
+                    <div className='form-group'>
+                        <label>Password</label>
+                        <input placeholder='password' value={passwordVal} onChange={handlePasswordChange} />
                     </div>
                 </div>
             );
         } else if (modalType === loginType.signup) {
             return (
-                <div className='modal-content'>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="signUpFirstName" type="text" className="validate" value={firstNameVal} onChange={handleFirstNameChange} />
-                            <label htmlFor="signUpFirstName">First Name</label>
-                        </div>
+                <div className='modal-body'>
+                    <div className='form-group'>
+                        <label>First Name</label>
+                        <input placeholder='first name' value={firstNameVal} onChange={handleFirstNameChange} />
                     </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="signUpLastName" type="text" className="validate" value={lastNameVal} onChange={handleLastNameChange} />
-                            <label htmlFor="signUpLastName">Last Name</label>
-                        </div>
+                    <div className='form-group'>
+                        <label>Last Name</label>
+                        <input placeholder='last name' value={lastNameVal} onChange={handleLastNameChange} />
                     </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="signUpUsername" type="text" className="validate" value={usernameVal} onChange={handleUsernameChange} />
-                            <label htmlFor="signUpUsername">Username</label>
-                        </div>
+                    <div className='form-group'>
+                        <label>Username</label>
+                        <input placeholder='username' value={usernameVal} onChange={handleUsernameChange} />
                     </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="signUpEmail" type="email" className="validate" value={emailVal} onChange={handleEmailChange} />
-                            <label htmlFor="signUpEmail">Email</label>
-                        </div>
+                    <div className='form-group'>
+                        <label>Email</label>
+                        <input placeholder='email' value={emailVal} onChange={handleEmailChange} />
                     </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="signUpPassword" type="password" className="validate" value={passwordVal} onChange={handlePasswordChange} />
-                            <label htmlFor="signUpPassword">Password</label>
-                        </div>
+                    <div className='form-group'>
+                        <label>Password</label>
+                        <input placeholder='first name' value={passwordVal} onChange={handlePasswordChange} />
                     </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="confirmPassword" type="password" className="validate" value={confirmPasswordVal} onChange={handleConfirmPasswordChange} />
-                            <label htmlFor="confirmPassword">Confirm Password</label>
-                        </div>
+                    <div className='form-group'>
+                        <label>Confirm Password</label>
+                        <input placeholder='first name' value={confirmPasswordVal} onChange={handleConfirmPasswordChange} />
                     </div>
                 </div>
-            );
+            )
         } else {
             console.log('error in authModal type: ' + modalType);
-        }
+        }   
     }
 
     const generateErrorInfo = () => {
@@ -207,30 +191,52 @@ function LogInSignUpModal() {
         );
     }
 
-    return (
-        <Modal
-            isOpen={modalIsOpen}
-            contentLabel='Login Modal'
-            ariaHideApp={false}
-        >
+return (
+    <Modal
+        isOpen={modalIsOpen}
+        contentLabel='LogIn Modal'
+        ariaHideApp={false}
+    >
+        <div className='modal-header'>
             <h5 className='modal-title'>{modalType}</h5>
-            <div className='error-info'>
-                {generateErrorInfo()}
+        </div>
+        <div className='error-info'>
+            {generateErrorInfo()}
+        </div>
+        <form>
+            {generateFormContents()}
+            <button type='button' className='btn btn-link' onClick={toggleModalType}>{changeTypeBtnText}</button>
+            <div className='modal-footer'>
+                <button type='submit' className='btn btn-primary' onClick={authSubmit}>Submit</button>
             </div>
-            <form>
-                {generateFormContents()}
-                <div className="row center">
-                    <button type='button' className='btn btn-link waves-light light-blue darken-3' onClick={toggleModalType}>{changeTypeBtnText}</button>
-                </div>
-                <div className='modal-footer row center'>
-                    <button className="btn waves-effect waves-light light-blue darken-3" type="submit" name="action" id="signUpBtn" href="/homepage" onClick={authSubmit}>Submit<i className="material-icons right">send</i></button>
-                </div>
-                {/* <div className="modal-footer">
-                    <a className="modal-close waves-effect waves-green btn-flat" onClick={closeModal}>X</a>
-                </div> */}
-            </form>
-        </Modal>
-    )
+        </form>
+    </Modal>
+)
+
+    // return (
+    //     <Modal
+    //         isOpen={modalIsOpen}
+    //         contentLabel='Login Modal'
+    //         ariaHideApp={false}
+    //     >
+    //         <h5 className='modal-title'>{modalType}</h5>
+    //         <div className='error-info'>
+    //             {generateErrorInfo()}
+    //         </div>
+    //         <form>
+    //             {generateFormContents()}
+    //             <div className="row center">
+    //                 <button type='button' className='btn btn-link waves-light light-blue darken-3' onClick={toggleModalType}>{changeTypeBtnText}</button>
+    //             </div>
+    //             <div className='modal-footer row center'>
+    //                 <button className="btn waves-effect waves-light light-blue darken-3" type="submit" name="action" id="signUpBtn" href="/homepage" onClick={authSubmit}>Submit<i className="material-icons right">send</i></button>
+    //             </div>
+    //             {/* <div className="modal-footer">
+    //                 <a className="modal-close waves-effect waves-green btn-flat" onClick={closeModal}>X</a>
+    //             </div> */}
+    //         </form>
+    //     </Modal>
+    // )
 }
 
 // colors for buttons: https://materializecss.com/color.html
