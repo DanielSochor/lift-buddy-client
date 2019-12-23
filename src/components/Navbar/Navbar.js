@@ -1,5 +1,5 @@
 import React from 'react';
-//import './navbar.css';
+//import './NavBar.css';
 
 // Component imports
 //import NavbarBrand from '../navbarBrand/navbarBrand';
@@ -10,7 +10,7 @@ import React from 'react';
 //TOFO: if session token does exisit show log out button
 
 const authSubmit = (event) => {
-  event.preventDefault();
+  //event.preventDefault();
 }
 
 function NavBar() {
@@ -20,6 +20,8 @@ function NavBar() {
       <nav>
         {/* <NavbarBrand /> */}
         <div className='nav-wrapper'>
+          
+        {/* <button className="btn waves-effect waves-light light-blue darken-3" type="submit" name="action" id="signUpBtn" href="/homepage" onClick={authSubmit}>Submit<i className="material-icons right">send</i></button> */}
 
         </div>
       </nav>
