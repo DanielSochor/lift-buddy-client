@@ -1,5 +1,5 @@
 import React from 'react';
-import './navbarBrand.css';
+import './NavBarLogo.css';
 
 import { APP_NAME, NOTIF } from '../../utilities/constants';
 import Pubsub from '../../utilities/pubsub';
@@ -8,7 +8,7 @@ function NavbarLogo() {
   const brandClicked = () => {
     if (window.innerWidth <= 575) {
       console.log('Mobile');
-      Pubsub.publish(NOTIF.TOGGLE_SIDEBAR_MOBILE, null);
+      //Pubsub.publish(NOTIF.TOGGLE_SIDEBAR_MOBILE, null);
     }
   }
 
