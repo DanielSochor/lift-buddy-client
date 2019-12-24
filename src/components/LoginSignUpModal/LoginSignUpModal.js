@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from '../../../node_modules/react';
+import React, { useState, useEffect } from 'react';
 import "./LogInSignUpModal.css"
 import Modal from '../../../node_modules/react-modal/lib';
 import Auth from '../../utilities/authorizer';
@@ -181,7 +181,8 @@ function LogInSignUpModal() {
                     </div>
                     <div className='form-group'>
                         <label>Email</label>
-                        <input className='form-control' placeholder='email' value={emailVal} onChange={handleEmailChange} />
+                        <input className='form-control' placeholder='name@example.com' value={emailVal} onChange={handleEmailChange} />
+                        {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
                     </div>
                     <div className='form-group'>
                         <label>Password</label>
