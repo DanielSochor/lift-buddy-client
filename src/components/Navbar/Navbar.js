@@ -2,7 +2,7 @@ import React from 'react';
 //import './NavBar.css';
 
 // Component imports
-import NavbarBrand from '../NavBarLogo/NavBarLogo';
+import NavbarLogo from '../NavBarLogo/NavBarLogo';
 //import NavbarAuthDropdown from '../navbarAuthDropdown/navbarAuthDropdown';
 //import AuthModal from '../authModal/authModal';
 
