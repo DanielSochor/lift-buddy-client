@@ -11,6 +11,18 @@ const changeTypeBtnTextValues = {
     signup: 'Already have an account?'
 };
 
+const customStyles = {
+    content: {
+        // top: '50%',
+        // left: '50%',
+        // right: 'auto',
+        // bottom: 'auto',
+        // marginRight: '-50%',
+        // transform: 'translate(-50%, -50%)',
+        // minWidth: '350px'
+    }
+};
+
 const loginType = {
     login: 'Log In',
     signup: 'Sign Up'
@@ -143,40 +155,41 @@ function LogInSignUpModal() {
                 <div className='modal-body'>
                     <div className='form-group'>
                         <label>Username</label>
-                        <input placeholder='username' value={usernameVal} onChange={handleUsernameChange} />
+                        <input className='form-control' placeholder='username' value={usernameVal} onChange={handleUsernameChange} />
                     </div>
                     <div className='form-group'>
                         <label>Password</label>
-                        <input placeholder='password' value={passwordVal} onChange={handlePasswordChange} />
+                        <input className='form-control' placeholder='password' value={passwordVal} onChange={handlePasswordChange} />
                     </div>
                 </div>
             );
         } else if (modalType === loginType.signup) {
             return (
+                //className='form-control' puts input fields below form label
                 <div className='modal-body'>
                     <div className='form-group'>
                         <label>First Name</label>
-                        <input placeholder='first name' value={firstNameVal} onChange={handleFirstNameChange} />
+                        <input className='form-control' placeholder='first name' value={firstNameVal} onChange={handleFirstNameChange} />
                     </div>
                     <div className='form-group'>
                         <label>Last Name</label>
-                        <input placeholder='last name' value={lastNameVal} onChange={handleLastNameChange} />
+                        <input className='form-control' placeholder='last name' value={lastNameVal} onChange={handleLastNameChange} />
                     </div>
                     <div className='form-group'>
                         <label>Username</label>
-                        <input placeholder='username' value={usernameVal} onChange={handleUsernameChange} />
+                        <input className='form-control' placeholder='username' value={usernameVal} onChange={handleUsernameChange} />
                     </div>
                     <div className='form-group'>
                         <label>Email</label>
-                        <input placeholder='email' value={emailVal} onChange={handleEmailChange} />
+                        <input className='form-control' placeholder='email' value={emailVal} onChange={handleEmailChange} />
                     </div>
                     <div className='form-group'>
                         <label>Password</label>
-                        <input placeholder='password' value={passwordVal} onChange={handlePasswordChange} />
+                        <input className='form-control' placeholder='password' value={passwordVal} onChange={handlePasswordChange} />
                     </div>
                     <div className='form-group'>
                         <label>Confirm Password</label>
-                        <input placeholder='password' value={confirmPasswordVal} onChange={handleConfirmPasswordChange} />
+                        <input className='form-control' placeholder='password' value={confirmPasswordVal} onChange={handleConfirmPasswordChange} />
                     </div>
                 </div>
             )
@@ -195,6 +208,7 @@ return (
     <Modal
         isOpen={modalIsOpen}
         contentLabel='LogIn Modal'
+        style={customStyles}
         ariaHideApp={false}
     >
         <div className='modal-header'>
