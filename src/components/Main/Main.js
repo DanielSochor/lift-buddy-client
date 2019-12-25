@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-//import './main.css';
+import './Main.css';
 //-import Run from "../../pages/Run/Run";
 import Pubsub from '../../utilities/pubsub';
 import LogInSignUpModal from '../LogInSignUpModal/LogInSignUpModal';
@@ -62,8 +62,7 @@ function Main() {
   // }
 
   return (
-
-    <div>
+    <div className='bg'>
       {/* <Router>
         <div>
           <Route exact path="/challengepage" component={ChallengePage} />
