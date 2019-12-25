@@ -1,16 +1,3 @@
-.ReactModal__Overlay{
-    background-image: url("../../images/WorkoutRack.jpg");
-    background-size: cover;
-}
-
 .ReactModal__Content{
     opacity: .80;
-    height: 600px;   
 }
-
-.ReactModal__Content:focus{
-    height: 410px;
-}
-
-
-
