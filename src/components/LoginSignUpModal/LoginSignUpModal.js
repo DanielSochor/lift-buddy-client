@@ -24,14 +24,14 @@ const customStyles = {
     }
 };
 
-const loginType = {
+const MmodalType = {
     login: 'Log In',
     signup: 'Sign Up'
 };
 
 function LogInSignUpModal() {
 
-    const [modalType, setModalType] = useState(loginType.login);
+    const [modalType, setModalType] = useState('login');
     const [changeTypeBtnText, setChangeTypeBtnText] = useState(changeTypeBtnTextValues.login);
     const [modalIsOpen, setModalIsOpen] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
@@ -76,8 +76,8 @@ function LogInSignUpModal() {
 
     const toggleModalType = () => {
         //setErrorMessage('');
-        let newModalType = modalType === loginType.login ? loginType.signup : loginType.login;
-        let newChangeBtnText = modalType === loginType.login ? changeTypeBtnTextValues.signup : changeTypeBtnTextValues.login;
+        let newModalType = modalType === 'login' ? 'signup' : 'login';
+        let newChangeBtnText = modalType === 'login' ? changeTypeBtnTextValues.signup : changeTypeBtnTextValues.login;
         setModalType(newModalType);
         setChangeTypeBtnText(newChangeBtnText);
     }
@@ -127,7 +127,7 @@ function LogInSignUpModal() {
     const authSubmit = (event) => {
         event.preventDefault();
         setErrorMessage('');
-        if (modalType === loginType.login) {
+        if (modalType === 'login') {
             let signinObj = {
                 username: usernameVal,
                 password: passwordVal
@@ -135,7 +135,7 @@ function LogInSignUpModal() {
             console.log('sign in obj: ');
             console.log(signinObj);
             Auth.sendLogInRequest(signinObj);
-        } else if (modalType === loginType.signup) {
+        } else if (modalType === 'signup') {
             let signupObj = {
                 first_name: firstNameVal,
                 last_name: lastNameVal,
@@ -151,7 +151,7 @@ function LogInSignUpModal() {
     }
 
     const generateFormContents = () => {
-        if (modalType === loginType.login) {
+        if (modalType === 'login') {
             return (
                 <div className='modal-body'>
                     <div className='form-group'>
@@ -164,7 +164,7 @@ function LogInSignUpModal() {
                     </div>
                 </div>
             );
-        } else if (modalType === loginType.signup) {
+        } else if (modalType === 'signup') {
             return (
                 //className='form-control' puts input fields below form label
                 <div className='modal-body'>
