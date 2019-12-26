@@ -29,32 +29,6 @@ var user = {};
         }
     }
 
-    obj.sendSignUpRequest = (params) => {
-        if (validateSignUpRequest(params)) {
-            console.log('API signup is: ' + API.signup);
-            axios.post(baseURL + API.signup, {
-                first_name: params.first_name,
-                last_name: params.last_name,
-                username: params.username,
-                email_address: params.email_address,
-                password: params.password,
-                password_confirm: params.password_confirm
-            }).then(response => {
-                console.log('response is: ');
-                console.log(response);
-                let logInObj = {
-                    username: params.username,
-                    password: params.password
-                };
-                console.log('authorizer sendSignUpRequest log in object is: ');
-                console.log(logInObj);
-                obj.sendLogInRequest(logInObj);
-            })
-        } else {
-            console.log('Sign up request did not validate');
-        }
-    }
-
     obj.sendLogInRequest = (logInObj) => {
         console.log('authorizer sendLogInRequest log in object is: ');
         console.log(logInObj);
@@ -81,6 +55,32 @@ var user = {};
                 message: 'Please fill in the required fields'
             };
             Pubsub.publish(NOTIF.AUTH_ERROR, errorObj);
+        }
+    }
+
+    obj.sendSignUpRequest = (params) => {
+        if (validateSignUpRequest(params)) {
+            console.log('API signup is: ' + API.signup);
+            axios.post(baseURL + API.signup, {
+                first_name: params.first_name,
+                last_name: params.last_name,
+                username: params.username,
+                email_address: params.email_address,
+                password: params.password,
+                password_confirm: params.password_confirm
+            }).then(response => {
+                console.log('response is: ');
+                console.log(response);
+                let logInObj = {
+                    username: params.username,
+                    password: params.password
+                };
+                console.log('authorizer sendSignUpRequest log in object is: ');
+                console.log(logInObj);
+                obj.sendLogInRequest(logInObj);
+            })
+        } else {
+            console.log('Sign up request did not validate');
         }
     }
 
