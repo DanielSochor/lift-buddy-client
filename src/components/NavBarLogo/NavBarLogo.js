@@ -5,7 +5,8 @@ import { APP_NAME, NOTIF } from '../../utilities/constants';
 import Pubsub from '../../utilities/pubsub';
 
 function NavbarLogo() {
-  const brandClicked = () => {
+  const logoClicked = () => {
+    console.log('logo clicked');
     if (window.innerWidth <= 575) {
       console.log('Mobile');
       //Pubsub.publish(NOTIF.TOGGLE_SIDEBAR_MOBILE, null);
@@ -13,7 +14,7 @@ function NavbarLogo() {
   }
 
   return (
-    <button className='navbar-brand' onClick={brandClicked}>{APP_NAME}</button>
+    <button className='navbar-brand' onClick={logoClicked}>{APP_NAME}</button>
   );
 }
 
