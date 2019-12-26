@@ -3,9 +3,14 @@ body, html {
     }
 
 .bg{
-    background-image: url('../../images/WorkoutRack.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    /* The image used */
+    background-image: url(../../images/WorkoutRack.jpg);
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
   }
