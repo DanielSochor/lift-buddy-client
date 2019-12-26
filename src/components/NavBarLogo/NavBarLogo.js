@@ -14,7 +14,7 @@ function NavbarLogo() {
   }
 
   return (
-    <button className='navbar-brand' onClick={logoClicked}>{APP_NAME}</button>
+    <button className='navbar-logo' onClick={logoClicked}>{APP_NAME}</button>
   );
 }
 
