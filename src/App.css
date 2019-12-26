@@ -34,4 +34,8 @@
 
 .App {
   height: 100%;
+  /* 
+  TODO: Determine how to remove margins on sides of background image
+  width: 100%; 
+  */
 }
