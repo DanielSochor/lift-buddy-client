@@ -1,5 +1,7 @@
 body, html {
     height: 100%;
+    width: 100%;
+    background-color: black;
     }
 
 .container{
@@ -8,6 +10,7 @@ body, html {
 
     /* Full height */
     height: 100%;
+    width: 100%;
 
     /* Center and scale the image nicely */
     background-position: center;
