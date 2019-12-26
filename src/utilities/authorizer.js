@@ -23,6 +23,7 @@ var user = {};
             console.log('session token exists');
             console.log('session token is: ' + session_token);
             obj.getUserInfo(session_token);
+            Pubsub.publish(NOTIF.LOG_IN, null);
         } else {
             console.log('no session token exists');
         }
