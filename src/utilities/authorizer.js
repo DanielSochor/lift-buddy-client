@@ -23,7 +23,6 @@ var user = {};
             console.log('session token exists');
             console.log('session token is: ' + session_token);
             obj.getUserInfo(session_token);
-            Pubsub.publish(NOTIF.LOG_IN, null);
         } else {
             console.log('no session token exists');
         }
@@ -89,10 +88,10 @@ var user = {};
             .then(response => {
                 if (validateUserData(response.data)) {
                     user = deepCopyObj(response.data);
+                    Pubsub.publish(NOTIF.LOG_IN, null);
                 }
                 console.log('deep copied user is: ');
                 console.log(user);
-                Pubsub.publish(NOTIF.SIGN_IN, null);
             }).catch(error => {
                 console.log(error);
             });
