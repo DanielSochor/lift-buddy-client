@@ -15,8 +15,6 @@ import LogInSignUpModal from '../LogInSignUpModal/LogInSignUpModal';
 //import { BrowserRouter as Router, Route } from "react-router-dom";
 import { NOTIF } from '../../utilities/constants';
 
-import image from '../../images/WorkoutRack.jpg'
-
 function Main() {
 
   const [authenticated, setAuthenticated] = useState(false);
@@ -63,8 +61,10 @@ function Main() {
   //   }
   // }
 
+//<div className='bg' style={{ backgroundImage:`url(${image})` }}>
+
   return (
-    <div style={{ backgroundImage:`url(${image})` }}>
+    <div className='container'>
       {/* <Router>
         <div>
           <Route exact path="/challengepage" component={ChallengePage} />
