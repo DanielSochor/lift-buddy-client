@@ -3,7 +3,7 @@ export const APP_NAME = 'Lift Buddy';
 
 // set baseURL
 //TODO does it make sense to define this on the front-end?
-const baseURL = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL;
+//const baseURL = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_SERVER_URL : process.env.REACT_APP_LOCAL_URL;
 
 // Notification strings for pubsub
 export const NOTIF = {
