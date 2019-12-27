@@ -1,6 +1,6 @@
 import React from 'react';
 import './Main.css';
-import LogInSignUpModal from '../LogInSignUpModal/LogInSignUpModal';
+import LogInSignUpModal from '../LogIn_SignUp_Modal/LogInSignUpModal';
 
 //import React, { useState, useEffect } from 'react';
 //-import Run from "../../pages/Run/Run";
