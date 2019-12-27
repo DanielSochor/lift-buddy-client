@@ -24,7 +24,8 @@ const customStyles = {
     }
 };
 
-const MmodalType = {
+//this is not currently used, the modal currently checks for the actual string values
+const ModalType = {
     login: 'Log In',
     signup: 'Sign Up'
 };
@@ -152,7 +153,7 @@ function LogInSignUpModal() {
     }
 
     const clearFormInputs = () => {
-        event.preventDefault();
+        //event.preventDefault();
         console.log('test');
     }
 
