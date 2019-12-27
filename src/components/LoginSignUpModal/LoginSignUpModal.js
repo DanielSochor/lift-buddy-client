@@ -147,7 +147,13 @@ function LogInSignUpModal() {
             console.log('sign up obj: ');
             console.log(signupObj);
             Auth.sendSignUpRequest(signupObj);
+            clearFormInputs();
         }
+    }
+
+    const clearFormInputs = () => {
+        event.preventDefault();
+        console.log('test');
     }
 
     const generateFormContents = () => {
