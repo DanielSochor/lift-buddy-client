@@ -109,8 +109,7 @@ var user = {};
             if (response.status === 200) {
                 user = {};
                 localStorage.setItem('x-session-token', '');
-                //Pubsub.publish(NOTIF.SIGN_OUT, null);
-                Pubsub.publish('logout', null);
+                Pubsub.publish(NOTIF.LOG_OUT, null);
                 //Data.handleSignout();
                 console.log('signout success');
             } else {
