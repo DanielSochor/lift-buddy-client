@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Main.css';
-//-import Run from "../../pages/Run/Run";
-import Pubsub from '../../utilities/pubsub';
 import LogInSignUpModal from '../LogInSignUpModal/LogInSignUpModal';
+
+//import React, { useState, useEffect } from 'react';
+//-import Run from "../../pages/Run/Run";
+//import Pubsub from '../../utilities/pubsub';
 //import Challenge from '../Challenge/Challenge';
 //import Auth from '../../utilities/authorizer';
 //import HomePage from "../../pages/HomePage/HomePage";
@@ -13,31 +15,31 @@ import LogInSignUpModal from '../LogInSignUpModal/LogInSignUpModal';
 //import ChallengeContainer from '../ChallengeContainer/ChallengeContainer';
 //-import FAB from '../FloatingButton/Fab';
 //import { BrowserRouter as Router, Route } from "react-router-dom";
-import { NOTIF } from '../../utilities/constants';
+//import { NOTIF } from '../../utilities/constants';
 
 function Main() {
 
-  const [authenticated, setAuthenticated] = useState(false);
-  //-const [challengeType, setChallengeType] = useState('');
+  //const [authenticated, setAuthenticated] = useState(false);
+  //const [challengeType, setChallengeType] = useState('');
 
-  useEffect(() => {
-    Pubsub.subscribe('login', this, handleSignin);
-    Pubsub.subscribe('logout', this, handleSignout);
-    //-Pubsub.subscribe('challengeType', this, handleChallengeType);
-    return (() => {
-      Pubsub.unsubscribe('login', this);
-      Pubsub.unsubscribe('logout', this);
-      //-Pubsub.unsubscribe('challengeType', this);
-    });
-  }, []);
+  // useEffect(() => {
+  //   Pubsub.subscribe('login', this, handleSignin);
+  //   Pubsub.subscribe('logout', this, handleSignout);
+  //   Pubsub.subscribe('challengeType', this, handleChallengeType);
+  //   return (() => {
+  //     Pubsub.unsubscribe('login', this);
+  //     Pubsub.unsubscribe('logout', this);
+  //     Pubsub.unsubscribe('challengeType', this);
+  //   });
+  // }, []);
 
-  const handleSignout = () => {
-    setAuthenticated(false);
-  }
+  // const handleSignout = () => {
+  //   setAuthenticated(false);
+  // }
 
-  const handleSignin = () => {
-    setAuthenticated(true);
-  }
+  // const handleSignin = () => {
+  //   setAuthenticated(true);
+  // }
 
   //-const handleChallengeType = (challengeType) => {
   //-  setChallengeType(challengeType);
