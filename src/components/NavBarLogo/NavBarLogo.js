@@ -9,7 +9,7 @@ function NavbarLogo() {
     console.log('logo clicked');
     if (window.innerWidth <= 575) {
       console.log('Mobile');
-      //Pubsub.publish(NOTIF.TOGGLE_SIDEBAR_MOBILE, null);
+      Pubsub.publish(NOTIF.TOGGLE_SIDEBAR_MOBILE, null);
     }
   }
 
