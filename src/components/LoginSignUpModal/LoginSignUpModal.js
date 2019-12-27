@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./LogInSignUpModal.css"
-import Modal from '../../../node_modules/react-modal/lib';
+import Modal from 'react-modal';
 import Auth from '../../utilities/authorizer';
 import Pubsub from '../../utilities/pubsub';
 

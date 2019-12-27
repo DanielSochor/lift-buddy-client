@@ -1,4 +1,8 @@
-import React, { useState, useEffect } from 'react';
+//https://stackoverflow.com/questions/54895883/reset-to-initial-state-with-react-hooks
+
+
+
+import React, { useState, useEffect, useReducer } from 'react';
 import "./LogInSignUpModal.css"
 import Modal from 'react-modal';
 import Auth from '../../utilities/authorizer';
@@ -11,24 +15,88 @@ const changeTypeBtnTextValues = {
     signup: 'Already have an account?'
 };
 
-const loginType = {
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        // Set min modal width
+        minWidth: '350px'
+    }
+};
+
+const MmodalType = {
     login: 'Log In',
     signup: 'Sign Up'
 };
 
+const initialLogInState = {
+    usernameVal: '',
+    passwordVal: '',
+};
+
+const initialSignUpState = {
+    firstNameVal: '',
+    lastNameVal: '',
+    usernameVal: '',
+    emailVal: '',
+    passwordVal: '',
+    confirmPasswordVal: '',
+};
+
+function signupUser() {
+    return new Promise(resolve => {
+      setTimeout(resolve, 1000);
+    });
+  }
+
+const initialState = {
+    usernameVal: '',
+};
+
+// const reducer = (state,action) => {
+//     if (action.type === 'reset'){
+//         return initialState;
+//     }
+//     const result = { ...state };
+//     result[action.type] = action.value;
+//     return result;
+// };
+
+//const usernameVal = ('');
+
 function LogInSignUpModal() {
 
-    const [modalType, setModalType] = useState(loginType.login);
+    const [modalType, setModalType] = useState('login');
     const [changeTypeBtnText, setChangeTypeBtnText] = useState(changeTypeBtnTextValues.login);
     const [modalIsOpen, setModalIsOpen] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
 
     const [firstNameVal, setFirstNameVal] = useState('');
     const [lastNameVal, setLastNameVal] = useState('');
-    const [usernameVal, setUsernameVal] = useState('');
+    //const [usernameVal, setUsernameVal] = useState('');
     const [emailVal, setEmailVal] = useState('');
     const [passwordVal, setPasswordVal] = useState('');
     const [confirmPasswordVal, setConfirmPasswordVal] = useState('');
+
+    const [{usernameVal},setState] = useState(initialState);
+
+    const clearState = () => {
+        setState({ ...initialState});
+    };
+
+    const onChange = e => {
+        const { name, value } = e.target;
+        setState(prevState => ({ ...prevState, [name]:value }));
+    };
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        signupUser().then(clearState);
+    }
 
     useEffect(() => {
         //Pubsub.subscribe('modal_toogle', this, handleModalToggle);
@@ -46,7 +114,7 @@ function LogInSignUpModal() {
 
     useEffect(() => {
         Auth.checkForExistingSession();
-      }, []);
+    }, []);
 
     // const handleModalToggle = (type) => {
     //     if (type === loginType.login) {
@@ -63,8 +131,8 @@ function LogInSignUpModal() {
 
     const toggleModalType = () => {
         //setErrorMessage('');
-        let newModalType = modalType === loginType.login ? loginType.signup : loginType.login;
-        let newChangeBtnText = modalType === loginType.login ? changeTypeBtnTextValues.signup : changeTypeBtnTextValues.login;
+        let newModalType = modalType === 'login' ? 'signup' : 'login';
+        let newChangeBtnText = modalType === 'login' ? changeTypeBtnTextValues.signup : changeTypeBtnTextValues.login;
         setModalType(newModalType);
         setChangeTypeBtnText(newChangeBtnText);
     }
@@ -93,9 +161,9 @@ function LogInSignUpModal() {
     const handleLastNameChange = (event) => {
         setLastNameVal(event.target.value);
     }
-    const handleUsernameChange = (event) => {
-        setUsernameVal(event.target.value);
-    }
+    // const handleUsernameChange = (event) => {
+    //     setUsernameVal(event.target.value);
+    // }
     const handleEmailChange = (event) => {
         // @TODO implement live validation
         setEmailVal(event.target.value);
@@ -114,7 +182,7 @@ function LogInSignUpModal() {
     const authSubmit = (event) => {
         event.preventDefault();
         setErrorMessage('');
-        if (modalType === loginType.login) {
+        if (modalType === 'login') {
             let signinObj = {
                 username: usernameVal,
                 password: passwordVal
@@ -122,7 +190,7 @@ function LogInSignUpModal() {
             console.log('sign in obj: ');
             console.log(signinObj);
             Auth.sendLogInRequest(signinObj);
-        } else if (modalType === loginType.signup) {
+        } else if (modalType === 'signup') {
             let signupObj = {
                 first_name: firstNameVal,
                 last_name: lastNameVal,
@@ -137,68 +205,59 @@ function LogInSignUpModal() {
         }
     }
 
+    const clearFormInputs = () => {
+        //event.preventDefault();
+        console.log('test');
+    }
+
     const generateFormContents = () => {
-        if (modalType === loginType.login) {
+        if (modalType === 'login') {
             return (
-                <div className='modal-content'>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="loginUsername" type="text" className="validate" value={usernameVal} onChange={handleUsernameChange} />
-                            <label htmlFor="loginUsername">Username</label>
-                        </div>
+                <div className='modal-body'>
+                    <div className='form-group'>
+                        <label>Username</label>
+                        <input className='form-control' placeholder='username' name={usernameVal} value={usernameVal} onChange={onChange} />
                     </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="loginPassword" type="password" className="validate" value={passwordVal} onChange={handlePasswordChange} />
-                            <label htmlFor="loginPassword">Password</label>
-                        </div>
+                    <div className='form-group'>
+                        <label>Password</label>
+                        <input className='form-control' placeholder='password' value={passwordVal} onChange={handlePasswordChange} />
                     </div>
                 </div>
             );
-        } else if (modalType === loginType.signup) {
+        } else if (modalType === 'signup') {
             return (
-                <div className='modal-content'>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="signUpFirstName" type="text" className="validate" value={firstNameVal} onChange={handleFirstNameChange} />
-                            <label htmlFor="signUpFirstName">First Name</label>
-                        </div>
+                //className='form-control' puts input fields below form label
+                <div className='modal-body'>
+                    <div className='form-group'>
+                        <label>First Name</label>
+                        <input className='form-control' placeholder='first name' value={firstNameVal} onChange={handleFirstNameChange} />
                     </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="signUpLastName" type="text" className="validate" value={lastNameVal} onChange={handleLastNameChange} />
-                            <label htmlFor="signUpLastName">Last Name</label>
-                        </div>
+                    <div className='form-group'>
+                        <label>Last Name</label>
+                        <input className='form-control' placeholder='last name' value={lastNameVal} onChange={handleLastNameChange} />
                     </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="signUpUsername" type="text" className="validate" value={usernameVal} onChange={handleUsernameChange} />
-                            <label htmlFor="signUpUsername">Username</label>
-                        </div>
+                    <div className='form-group'>
+                        <label>Username</label>
+                        <input className='form-control' placeholder='username' value={usernameVal} onChange={onChange} />
                     </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="signUpEmail" type="email" className="validate" value={emailVal} onChange={handleEmailChange} />
-                            <label htmlFor="signUpEmail">Email</label>
-                        </div>
+                    <div className='form-group'>
+                        <label>Email</label>
+                        <input className='form-control' placeholder='name@example.com' value={emailVal} onChange={handleEmailChange} />
+                        {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
                     </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="signUpPassword" type="password" className="validate" value={passwordVal} onChange={handlePasswordChange} />
-                            <label htmlFor="signUpPassword">Password</label>
-                        </div>
+                    <div className='form-group'>
+                        <label>Password</label>
+                        <input className='form-control' placeholder='password' value={passwordVal} onChange={handlePasswordChange} />
                     </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="confirmPassword" type="password" className="validate" value={confirmPasswordVal} onChange={handleConfirmPasswordChange} />
-                            <label htmlFor="confirmPassword">Confirm Password</label>
-                        </div>
+                    <div className='form-group'>
+                        <label>Confirm Password</label>
+                        <input className='form-control' placeholder='password' value={confirmPasswordVal} onChange={handleConfirmPasswordChange} />
                     </div>
                 </div>
-            );
+            )
         } else {
             console.log('error in authModal type: ' + modalType);
-        }
+        }   
     }
 
     const generateErrorInfo = () => {
@@ -207,28 +266,28 @@ function LogInSignUpModal() {
         );
     }
 
-    return (
-        <Modal
-          isOpen={modalIsOpen}
-
-          contentLabel='Auth Modal'
-          ariaHideApp={false}
-        >
-          <div className='modal-header'>
+return (
+    <Modal
+        isOpen={modalIsOpen}
+        contentLabel='LogIn Modal'
+        style={customStyles}
+        ariaHideApp={false}
+    >
+        <div className='modal-header'>
             <h5 className='modal-title'>{modalType}</h5>
-          </div>
-          <div className='error-info'>
+        </div>
+        <div className='error-info'>
             {generateErrorInfo()}
-          </div>
-          <form>
+        </div>
+        <form>
             {generateFormContents()}
             <button type='button' className='btn btn-link' onClick={toggleModalType}>{changeTypeBtnText}</button>
             <div className='modal-footer'>
-              <button type='submit' className='btn btn-primary' onClick={authSubmit}>Submit</button>
+                <button type='submit' className='btn btn-primary' onClick={authSubmit}>Submit</button>
             </div>
-          </form>
-        </Modal>
-      )
+        </form>
+    </Modal>
+)
 
     // return (
     //     <Modal
