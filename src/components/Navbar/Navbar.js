@@ -7,13 +7,6 @@ import Authorizer from '../../utilities/authorizer';
 //import NavbarAuthDropdown from '../navbarAuthDropdown/navbarAuthDropdown';
 //import AuthModal from '../authModal/authModal';
 
-//TODO: if session token doesn't exist show LogInSignUpModal
-//TOFO: if session token does exisit show log out button
-
-const authSubmit = (event) => {
-  //event.preventDefault();
-}
-
 function NavBar() {
 
   return (
