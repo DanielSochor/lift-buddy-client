@@ -10,7 +10,8 @@ export const NOTIF = {
     LOG_IN: 'login',
     LOG_OUT: 'logout',
     SIGN_UP: 'signup',
-    AUTH_ERROR: 'auth_error'
+    AUTH_ERROR: 'auth_error',
+    TOGGLE_SIDEBAR_MOBILE: 'toggle_sidebar_mobile'
 };
 
 // API routes
