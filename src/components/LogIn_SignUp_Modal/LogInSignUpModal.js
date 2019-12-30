@@ -237,6 +237,4 @@ return (
     )
 }
 
-// colors for buttons: https://materializecss.com/color.html
-
 export default LogInSignUpModal;
