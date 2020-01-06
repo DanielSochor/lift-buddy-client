@@ -1,0 +1,9 @@
+#root {
+    height: 100%;
+    /*
+    TODO: Determine how to remove margins on sides of background image
+    object-fit: cover;
+    margin: 0%;
+    padding: 0%;
+    */
+  }

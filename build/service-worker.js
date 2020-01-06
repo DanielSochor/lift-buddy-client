@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://lift-buddy-client.herokuapp.com/precache-manifest.fda37621bfb440bb1a900ecf4a88e7e4.js"
+  "https://lift-buddy-client.herokuapp.com/precache-manifest.e459ed9f5bba6da48f39787f51392b5b.js"
 );
 
 self.addEventListener('message', (event) => {

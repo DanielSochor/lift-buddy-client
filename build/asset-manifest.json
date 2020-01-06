@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "https://lift-buddy-client.herokuapp.com/static/css/main.9bf12545.chunk.css",
-    "main.js": "https://lift-buddy-client.herokuapp.com/static/js/main.cc97ff9c.chunk.js",
-    "main.js.map": "https://lift-buddy-client.herokuapp.com/static/js/main.cc97ff9c.chunk.js.map",
-    "runtime~main.js": "https://lift-buddy-client.herokuapp.com/static/js/runtime~main.a700a6aa.js",
-    "runtime~main.js.map": "https://lift-buddy-client.herokuapp.com/static/js/runtime~main.a700a6aa.js.map",
-    "static/js/2.0bfc5617.chunk.js": "https://lift-buddy-client.herokuapp.com/static/js/2.0bfc5617.chunk.js",
-    "static/js/2.0bfc5617.chunk.js.map": "https://lift-buddy-client.herokuapp.com/static/js/2.0bfc5617.chunk.js.map",
+    "main.css": "https://lift-buddy-client.herokuapp.com/static/css/main.521dae49.chunk.css",
+    "main.js": "https://lift-buddy-client.herokuapp.com/static/js/main.61838b56.chunk.js",
+    "main.js.map": "https://lift-buddy-client.herokuapp.com/static/js/main.61838b56.chunk.js.map",
+    "runtime~main.js": "https://lift-buddy-client.herokuapp.com/static/js/runtime~main.84ba1c17.js",
+    "runtime~main.js.map": "https://lift-buddy-client.herokuapp.com/static/js/runtime~main.84ba1c17.js.map",
+    "static/js/2.81be8cf9.chunk.js": "https://lift-buddy-client.herokuapp.com/static/js/2.81be8cf9.chunk.js",
+    "static/js/2.81be8cf9.chunk.js.map": "https://lift-buddy-client.herokuapp.com/static/js/2.81be8cf9.chunk.js.map",
     "index.html": "https://lift-buddy-client.herokuapp.com/index.html",
-    "precache-manifest.fda37621bfb440bb1a900ecf4a88e7e4.js": "https://lift-buddy-client.herokuapp.com/precache-manifest.fda37621bfb440bb1a900ecf4a88e7e4.js",
+    "precache-manifest.e459ed9f5bba6da48f39787f51392b5b.js": "https://lift-buddy-client.herokuapp.com/precache-manifest.e459ed9f5bba6da48f39787f51392b5b.js",
     "service-worker.js": "https://lift-buddy-client.herokuapp.com/service-worker.js",
-    "static/css/main.9bf12545.chunk.css.map": "https://lift-buddy-client.herokuapp.com/static/css/main.9bf12545.chunk.css.map",
-    "static/media/LoginSignUpModal.css": "https://lift-buddy-client.herokuapp.com/static/media/WorkoutRack.a94aea0e.jpg"
+    "static/css/main.521dae49.chunk.css.map": "https://lift-buddy-client.herokuapp.com/static/css/main.521dae49.chunk.css.map",
+    "static/media/Main.css": "https://lift-buddy-client.herokuapp.com/static/media/WorkoutRack.a94aea0e.jpg"
   }
 }
